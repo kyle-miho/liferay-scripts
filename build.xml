@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<project name="Liferay-Automation" default="reset-bundle">
+	<!--File includes-->
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<!--Asks user which bundle to unzip-->
+	<input message="Which CE bundle do you want to work with?" validargs="71x-private,master,master-private,ce71,ce62,ce62ee,ce61,dxp7,ga5,ga1dxp,test" addproperty="bundle.type"/>
+	<if>
+		<equals arg1="ga5" arg2="${bundle.type}"/>
+		<then>
+			<!-- change current bundle name then unzip-->
+			<property name="tomcat8" value="yes" />
+			<property name="server.name" value="${server.foldername}"/>
+			<property name="current.bundle.name" value="${ga5ce7.name}"/>
+		</then>
+		<elseif>
+			<equals arg1="master" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${master.name}"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="test" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${test.name}"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="master-private" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${masterprivate.name}"/>
+				<property name="license.required" value="True"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="71x-private" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${71xprivate.name}"/>
+				<property name="license.required" value="True"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="ce71" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${nightce71.name}"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="ce61" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${ce61.name}"/>
+				<property name="tomcat74" value="yes" />
+				<property name="server.name" value="${server.foldernameolder}"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="ce62" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${ce62.name}"/>
+				<property name="tomcat7" value="yes" />
+				<property name="server.name" value="${server.foldernameold}"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="ce62ee" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${ce62ee.name}"/>
+				<property name="tomcat7" value="yes" />
+				<property name="server.name" value="${server.foldernameold}"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="dxp7" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${nightdxp7.name}"/>
+				<property name="license.required" value="True"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="ga1dxp" arg2="${bundle.type}"/>
+			<then>
+				<property name="current.bundle.name" value="${ga1dxp.name}"/>
+				<property name="server.name" value="${server.foldername}"/>
+				<property name="tomcat8" value="yes" />
+				<property name="license.required" value="True"/>
+			</then>
+		</elseif>
+	</if>
+	<property name="specific.bundle.home" value ="${bundle.homefolder}/${current.bundle.name}"/>
+	<if>
+		<equals arg1="tomcat7" arg2="yes" />
+		<then>
+			<property name="server.name" value="${server.foldernameold}"/>
+		</then>
+		<elseif>
+			<equals arg1="tomcat74" arg2="yes" />
+				<then>
+					<property name="server.name" value="${server.foldernameolder}"/>
+				</then>
+		</elseif>
+		<elseif>
+			<equals arg1="tomcat8" arg2="yes" />
+				<then>
+					<property name="server.name" value="${server.foldername}"/>
+				</then>
+		</elseif>
+		<else>	
+			<property name="server.name" value="${server.foldernamenew}"/>
+		</else>
+	</if>
+
+
+	<!-- Unzips specified bundle, and then sets it up to be run-->
+	<target name="update-bundle">
+		<antcall target="unzip-bundle"/>
+		<antcall target="reset-bundle"/>
+	</target>
+
+	<!--Unzips Tomcat bundle to bundles location-->
+	<target name="unzip-bundle">
+		<!-- change current bundle name then unzip-->
+		<echo>Unzipping file: **${current.bundle.name}*.zip</echo>
+		<unzip dest="${allbundles.home}">
+			<fileset dir="bundles">
+				<include name="${current.bundle.name}.zip"/>
+			</fileset>
+		</unzip>
+	</target>
+
+	<!--Tomcat dependencies required after bundle compilation-->
+	<target name="reset-bundle">
+		<input message="Which Database do you want to reset?" validargs="mysql,maria" addproperty="database.type" />
+		<if>
+			<equals arg1="${database.type}" arg2="maria" />
+			<then>
+				<antcall target="reset-db-maria"/>
+				<antcall target="create-portal-ext-prop-mariadb" />
+			</then>
+			<else>
+				<antcall target="reset-db" />
+				<antcall target="create-portal-ext-prop"/>
+			</else>
+		</if>
+		<antcall target="reset-data-deploy"/>
+		<antcall target="replace-mysql-jar"/>
+		<antcall target="remove-chat-jar"/>
+		<antcall target="license" />
+		<antcall target="delete-lpkg" />
+	</target>
+
+	<target name="update-test-properties">
+		<echo>Updating test.properties in L:/public/master-portal</echo>
+		<if>
+			<available file="L:/public/master-portal/test.properties"/>
+			<then>
+				<echo>Old properties file found, deleting!.</echo>
+				<delete file="L:/public/master-portal/test.properties"/>
+			</then>
+		</if>
+		<copy file="properties/test.properties" todir="L:/public/master-portal/"/>
+	</target>
+
+	<!-- Deletes and creates a fresh MYSQL database -->
+	<target name="reset-db">
+		<echo>Resetting Database ${sql.databaseName}</echo>
+		<exec executable="${sql.prog}">
+			<arg value="-e"/>
+			<arg value="drop database if exists ${sql.databaseName}; create database ${sql.databaseName} char set utf8;"/>
+		</exec>
+
+		<echo>Resetting successful!</echo>
+	</target>
+
+		<target name="reset-db-maria">
+		<echo>Resetting Database ${sql.databaseName}</echo>
+		<exec executable="${maria.prog}">
+			<arg value="-e"/>
+			<arg value="drop database if exists ${sql.databaseName}; create database ${sql.databaseName} char set utf8;"/>
+		</exec>
+
+		<echo>Resetting successful!</echo>
+	</target>
+
+	<!-- Deletes Data and Deploy Folders -->
+	<target name="reset-data-deploy">
+		<echo>Searching for data folder</echo>
+		<if>
+			<available file="${specific.bundle.home}/data" type="dir"/>
+			<then>
+				<echo>Found! Deleting data folder</echo>
+				<delete dir="${specific.bundle.home}/data"/>
+			</then>
+			<else>
+				<echo>Data folder already clean!</echo>
+			</else>
+		</if>
+
+		<echo>Searching for deploy folder</echo>
+		<if>
+			<available file="${specific.bundle.home}/deploy" type="dir"/>
+			<then>
+				<echo>Found! Deleting deploy folder</echo>
+				<!--<delete dir="${specific.bundle.home}/deploy"/>-->
+			</then>
+			<else>
+				<echo>Deploy folder already clean!</echo>
+			</else>
+		</if>
+
+		<echo>Finished deleting folders</echo>
+	</target>
+
+	<!-- Searches for and updates portal-ext.properties-->
+	<target name="create-portal-ext-prop">
+		<echo>Searching for portal-ext.properties</echo>
+		<if>
+			<available file="properties/portal-ext.properties"/>
+			<then>
+				<echo>portal-ext.properties found!</echo>
+				<if>
+					<available file="${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/" type="dir"/>
+					<then>
+						<echo>Bundle folder found! copying to ${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/</echo>
+						<delete file="${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/portal-ext.properties"></delete>
+						<copy file="${property.location}/portal-ext.properties" todir="${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/"></copy>
+					</then>
+				</if>
+			</then>
+			<else>
+				<echo>portal-ext.properties not found!</echo>
+				<fail message="Missing portal-ext.properties at ${property.location}"/>
+			</else>
+		</if>
+	</target>
+
+		<!-- Searches for and updates portal-ext.properties-->
+	<target name="create-portal-ext-prop-mariadb">
+		<echo>Searching for portal-ext.properties</echo>
+		<if>
+			<available file="${property.location}/maria/portal-ext.properties"/>
+			<then>
+				<echo>portal-ext.properties found!</echo>
+				<if>
+					<available file="${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/" type="dir"/>
+					<then>
+						<echo>Bundle folder found! copying to ${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/</echo>
+						<delete file="${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/portal-ext.properties"></delete>
+						<copy file="${property.location}/maria/portal-ext.properties" todir="${specific.bundle.home}/${server.name}/webapps/ROOT/WEB-INF/classes/"></copy>
+					</then>
+				</if>
+			</then>
+			<else>
+				<echo>portal-ext.properties not found!</echo>
+				<fail message="Missing portal-ext.properties at ${property.location}/maria"/>
+			</else>
+		</if>
+	</target>
+
+	<target name="replace-mysql-jar">
+		<echo>Updating mysql.jar in ${bundle.homefolder}/${current.bundle.name}/${server.name}/lib/ext</echo>
+		<if>
+			<available file="${specific.bundle.home}/${server.name}/lib/ext/mysql.jar"/>
+			<then>
+				<echo>Old mysql.jar Found! Deleting.</echo>
+				<delete file="${specific.bundle.home}/${server.name}/lib/ext/mysql.jar"/>
+			</then>
+		</if>
+		<copy file="${sql.jarpath}/mysql.jar" todir="${specific.bundle.home}/${server.name}/lib/ext"/>
+	</target>
+
+	<target name="remove-chat-jar">
+		<echo>Deleting chat jars in ${bundle.homefolder}/${current.bundle.name}/${server.name}/osgi/modules</echo>
+
+		<if>
+			<available file="${bundle.homefolder}/${current.bundle.name}/osgi/modules/com.liferay.chat.api.jar"/>
+			<then>
+				<echo>com.liferay.chat.api.jar Found! Deleting.</echo>
+				<delete file="${bundle.homefolder}/${current.bundle.name}/osgi/modules/com.liferay.chat.api.jar"/>
+			</then>
+		</if>
+
+		<if>
+			<available file="${bundle.homefolder}/${current.bundle.name}/osgi/modules/com.liferay.chat.service.jar"/>
+			<then>
+				<echo>com.liferay.chat.service.jar Found! Deleting.</echo>
+				<delete file="${bundle.homefolder}/${current.bundle.name}/osgi/modules/com.liferay.chat.service.jar"/>
+			</then>
+		</if>
+
+		<if>
+			<available file="${bundle.homefolder}/${current.bundle.name}/osgi/modules/com.liferay.chat.web.jar"/>
+			<then>
+				<echo>com.liferay.chat.web.jar Found! Deleting.</echo>
+				<delete file="${bundle.homefolder}/${current.bundle.name}/osgi/modules/com.liferay.chat.web.jar"/>
+			</then>
+		</if>
+	</target>
+
+	<target name="delete-lpkg">
+	<!--
+		<echo>Deleting LCS lpkg</echo>
+		<if>
+			<available file="${bundle.homefolder}/${current.bundle.name}/osgi/marketplace/Liferay Connected Services Client.lpkg" />
+			<then>
+				<echo>Liferay Connected Services Client.lpkg Found! Deleting</echo>
+				<delete file="${bundle.homefolder}/${current.bundle.name}/osgi/marketplace/Liferay Connected Services Client.lpkg" />
+			</then>
+			<else>
+				<echo>Liferay Connected Services Client.lpkg not found!</echo>
+			</else>
+		</if>
+	-->
+	</target>
+
+	<target name="license">
+		<echo>Checking if License is needed</echo>
+		<if>
+			<available file="license/7.0License.xml"/>
+			<then>
+				<echo>License found!</echo>
+				<if>
+					<equals arg1="${license.required}" arg2="True"/>
+					<then>
+						<echo>Deploy folder found! copying to ${specific.bundle.home}/deploy/</echo>
+						<copy file="license/7.0License.xml" todir="${specific.bundle.home}/deploy/"></copy>
+					</then>
+				</if>
+			</then>
+			<else>
+				<echo>License not found!</echo>
+				<fail message="Missing License at license/7.0License.xml"/>
+			</else>
+		</if>
+	</target>
+</project>
