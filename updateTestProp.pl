@@ -9,9 +9,6 @@ $/ = "";
 #test.properties location
 my $testProp ="L:/public/master-portal/test.properties";
 
-#TODO -> FIX THIS
-open(PROPREAD,"+>","$testProp") or die("Could not open $testProp");
-
 #don't touch properties unless if needed
 my $firstPropStart = qr"test.batch.dist.app.servers=";
 my $firstPropEnd = "wildfly";
@@ -25,13 +22,33 @@ my $secondPropResult = "test.batch.names=functional-tomcat90-mysql57-jdk8";
 my $thirdPropSolo = qr"test\.batch\.run\.property\.query\[functional\-tomcat90\-mysql57\-jdk8\]=\(portal\.acceptance == true\)";
 my $thirdPropResult = "test.batch.run.property.query[functional-tomcat90-mysql57-jdk8]=(portal.acceptance == kyle-miho) AND (app.server.types == null OR app.server.types ~ tomcat) AND (database.types == null OR database.types ~ mysql)";
 
-#first argument should be text file you want to replace
-while (<PROPREAD>) {
-    #first replace
-    s/$firstPropStart.*?$firstPropEnd/$firstPropResult/sm;
-    #second replace
-    s/$secondPropStart.*?$secondPropEnd/$secondPropResult/sm;
-    #third replace
-    s/$thirdPropSolo/$thirdPropResult/sm;
-    print;
+
+#ACTUAL CONTENT
+my $data = read_file($testProp);
+$data =~ s/$firstPropStart.*?$firstPropEnd/$firstPropResult/sm;
+$data =~ s/$secondPropStart.*?$secondPropEnd/$secondPropResult/sm;
+$data =~ s/$thirdPropSolo/$thirdPropResult/sm;
+write_file($testProp,$data);
+
+############################
+
+sub read_file {
+    my ($filename) = @_;
+
+    open my $in, '<:encoding(UTF-8)', $filename or die "Could not open '$filename' for reading $!";
+    local $/ = undef;
+    my $all = <$in>;
+    close $in;
+
+    return $all
+}
+
+sub write_file {
+    my ($filename, $content) = @_;
+ 
+    open my $out, '>:encoding(UTF-8)', $filename or die "Could not open '$filename' for writing $!";;
+    print $out $content;
+    close $out;
+ 
+    return;   
 }
