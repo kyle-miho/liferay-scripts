@@ -1,13 +1,16 @@
 use strict;
 use warnings;
 
-#backup file
 $^I = '.bak';
-#record seperator
 $/ = "";
 
-#test.properties location
+#####################################################################
+#MODIFY THESE
+#TEST PROPERTY LOCATION
 my $testProp ="L:/public/master-portal/test.properties";
+#ACCEPTANCE NAME
+my $name = "kyle-miho";
+#####################################################################
 
 #don't touch properties unless if needed
 my $firstPropStart = qr"test.batch.dist.app.servers=";
@@ -20,8 +23,7 @@ my $secondPropResult = "test.batch.names=functional-tomcat90-mysql57-jdk8";
 
 #replace kyle-miho with what you need
 my $thirdPropSolo = qr"test\.batch\.run\.property\.query\[functional\-tomcat90\-mysql57\-jdk8\]=\(portal\.acceptance == true\)";
-my $thirdPropResult = "test.batch.run.property.query[functional-tomcat90-mysql57-jdk8]=(portal.acceptance == kyle-miho) AND (app.server.types == null OR app.server.types ~ tomcat) AND (database.types == null OR database.types ~ mysql)";
-
+my $thirdPropResult = "test.batch.run.property.query[functional-tomcat90-mysql57-jdk8]=(portal.acceptance == $name) AND (app.server.types == null OR app.server.types ~ tomcat) AND (database.types == null OR database.types ~ mysql)";
 
 #ACTUAL CONTENT
 my $data = read_file($testProp);
@@ -30,7 +32,7 @@ $data =~ s/$secondPropStart.*?$secondPropEnd/$secondPropResult/sm;
 $data =~ s/$thirdPropSolo/$thirdPropResult/sm;
 write_file($testProp,$data);
 
-############################
+#FUNCTIONS
 
 sub read_file {
     my ($filename) = @_;
