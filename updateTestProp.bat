@@ -1,1 +1,0 @@
-ssed ':a;N;$!ba;s/test.batch.names=\.*wsdd-builder-jdk8/functional-tomcat90-mysql57-jdk8/g' test.properties > test2.properties
