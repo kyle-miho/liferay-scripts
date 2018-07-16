@@ -29,8 +29,8 @@ find(\&getMacroCallsList,"$portal_home/portal-web/test/functional/com/liferay/po
 my @splitMacroList = split(' ', $macroList);
 my @splitMacroCalls = split(' ', $macroCalls);
 
-open(my $fileTemp, '>', '$unusedMacrosFileName') or die;
-open(my $fileTemp2, '>', '$usedMacrosFileName') or die;
+open(my $fileTemp, '>', $unusedMacrosFileName) or die;
+open(my $fileTemp2, '>', $usedMacrosFileName) or die;
 foreach my $macro (@splitMacroList) {
     my $temp = countMacroUsages($macro,@splitMacroCalls);
     if ($temp == 0)
