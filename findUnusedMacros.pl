@@ -17,7 +17,7 @@ my $start_time = time();
 #YOU CAN DEFINE YOUR THINGS HERE 
 my $portal_home = "L:/public/master-portal";
 my $unusedMacrosFileName = "unusedMacros.txt";
-my $usedMacrosFileName = "usedMacros.txt"
+my $usedMacrosFileName = "usedMacros.txt";
 
 #GET MACROS USED into MACROLIST, MACROS CALLED into macroCalls
 use File::Find;
