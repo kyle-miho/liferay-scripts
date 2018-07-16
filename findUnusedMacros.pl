@@ -35,9 +35,9 @@ foreach my $macro (@splitMacroList) {
     my $temp = countMacroUsages($macro,@splitMacroCalls);
     if ($temp == 0)
     {
-        print $fileTemp $macro . " - Usages: 0\n";
+        print $fileTemp "$macro - Usages: 0\n";
     } else {
-        print $fileTemp2 $macro . " - Usages: " . $temp . "\n";
+        print $fileTemp2 "$macro - Usages: $temp\n";
     }
     print("\r");
     my $currentCountString = "$currentCount";
