@@ -14,8 +14,10 @@ my $currentCount = 0;
 #START TIME
 my $start_time = time();
 
-#PORTAL-HOME 
+#YOU CAN DEFINE YOUR THINGS HERE 
 my $portal_home = "L:/public/master-portal";
+my $unusedMacrosFileName = "unusedMacros.txt";
+my $usedMacrosFileName = "usedMacros.txt"
 
 #GET MACROS USED into MACROLIST, MACROS CALLED into macroCalls
 use File::Find;
@@ -27,13 +29,13 @@ find(\&getMacroCallsList,"$portal_home/portal-web/test/functional/com/liferay/po
 my @splitMacroList = split(' ', $macroList);
 my @splitMacroCalls = split(' ', $macroCalls);
 
-open(my $fileTemp, '>', 'unusedMacros.txt') or die;
-open(my $fileTemp2, '>', 'usedMacros.txt') or die;
+open(my $fileTemp, '>', '$unusedMacrosFileName') or die;
+open(my $fileTemp2, '>', '$usedMacrosFileName') or die;
 foreach my $macro (@splitMacroList) {
     my $temp = countMacroUsages($macro,@splitMacroCalls);
     if ($temp == 0)
     {
-        print $fileTemp $macro . " - Usages: " . $temp . "\n";
+        print $fileTemp $macro . " - Usages: 0\n";
     } else {
         print $fileTemp2 $macro . " - Usages: " . $temp . "\n";
     }
