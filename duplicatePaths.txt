@@ -1,0 +1,624 @@
+'//input[contains(@type,'email')]' is duplicated. at MicrosoftLogin#LOGIN_EMAIL_FIELD
+'//input[contains(@type,'password')]' is duplicated. at MicrosoftLogin#LOGIN_PASSWORD_FIELD
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at Message#SUCCESS_3
+'//div[contains(@class,'tooltip-content')]' is duplicated. at Message#TOOLTIP
+'//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'General')]' is duplicated. at NavTab#LOOK_AND_FEEL_GENERAL
+'//textarea[contains(@id,'description')]' is duplicated. at TextArea#SUMMARY
+'//div[contains(@class,'has-error')]' is duplicated. at TextInput#REQUIRED_ALERT
+'//div[contains(@class,'tree-node-content') and span[contains(.,'${key_categoryName}')]]/span[contains(@class,'tree-node-checkbox')]' is duplicated. at AssetCategorization#CATEGORIES_CATEGORY_CHECKBOX_CHECKED
+'//div[@id='cke_1_contents']/textarea' is duplicated. at CKEditor#FIELD_SOURCE_ON
+'//div[@id='cke_1_contents']/textarea' is duplicated. at CKEditor#BODY_FIELD_SOURCE_ON_SEND_KEYS
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at CKEditor#LINK_IMAGE_BROWSE_SERVER_IFRAME
+'//select[contains(@id,'pageDelta')]' is duplicated. at Configuration#SETUP_DISPLAY_SETTINGS_MAXIMUM_ITEMS_TO_DISPLAY_SELECT
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDMField#DECIMAL
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDMField#INTEGER
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDMField#NUMBER
+'//div[@data-fieldname='${key_fieldName}']//select' is duplicated. at DDMField#SELECT
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDMField#TEXT
+'//button[contains(.,'Select Files')]' is duplicated. at DynamicUploader#SELECT_FILES_BUTTON
+'//li[@class='simple-menu-item' and @data-id='add']' is duplicated. at Calendar#CURRENT_SITE_CALENDARS_MENULIST_ADD_CALENDAR
+'//li[@class='simple-menu-item' and @data-id='manage']' is duplicated. at Calendar#CURRENT_SITE_CALENDARS_MENULIST_MANAGE_CALENDAR
+'//div[contains(@id,'siteCalendarList')]/div/div/span[contains(.,'${key_calendarName}')]' is duplicated. at Calendar#CURRENT_SITE_CALENDARS_CALENDAR_ADDITIONAL
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at CalendarConfiguration#SUCCESS_MESSAGE
+'//select[contains(@id,'timeZoneId')]' is duplicated. at CalendarConfiguration#USER_SETTINGS_TIME_ZONE_SELECT
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at CalendarEditCalendar#EDIT_CALENDAR_IFRAME
+'//h3[@class='header-title']/span' is duplicated. at CalendarEditCalendar#HEADER_TITLE
+'//div[contains(@id,'cke')]' is duplicated. at CalendarEditCalendar#NOTIFICATION_TEMPLATES_BODY_FIELD
+'//iframe[contains(@class,'dialog-iframe-node ')]' is duplicated. at CalendarEditEvent#EDIT_EVENT_IFRAME
+'//tr[contains(.,'${key_roleTitle}')]//input[@value='${key_permissionDefinitionKey}']' is duplicated. at CalendarEditEvent#DETAILS_PERMISSIONS_CHECKBOX
+'//h3[@class='header-title']/span' is duplicated. at CalendarEditResource#HEADER_TITLE
+'//button[@type='submit']' is duplicated. at CalendarEditResource#SAVE_BUTTON
+'//h3[@class='header-title']/span' is duplicated. at CalendarManageCalendars#TITLE
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at CalendarPermissions#CALENDAR_PERMISSIONS_IFRAME
+'//h3[@class='header-title']/span' is duplicated. at CalendarPermissions#HEADER_TITLE
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at CalendarViewEventDetails#VIEW_EVENT_IFRAME
+'//h3[@class='header-title']/span' is duplicated. at CalendarViewEventDetails#EVENT_TITLE
+'xPath=(//div[@class='rating-label'])[1]' is duplicated. at CalendarViewEventDetails#YOUR_RATING
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star'])[1]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_1
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star'])[2]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_2
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star'])[3]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_3
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star'])[4]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_4
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star'])[5]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_5
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[1]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_EMPTY_1
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[2]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_EMPTY_2
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[3]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_EMPTY_3
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[4]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_EMPTY_4
+'xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[5]' is duplicated. at CalendarViewEventDetails#YOUR_RATING_STAR_EMPTY_5
+'xPath=(//div[@class='rating-label'])[2]' is duplicated. at CalendarViewEventDetails#AVERAGE
+'//iframe[contains(@id,'selectContent')]' is duplicated. at EditUserSegment#USER_SEGMENT_RULE_BEHAVIOR_CONTENT_VISITED_SELECT_WEB_CONTENT_IFRAME
+'xpath=(//div/a[@title='Select Content'])[${key_rowNumber}]' is duplicated. at UserSegmentContentDisplay#RULE_PANEL_DISPLAY_CONTENT_SELECT
+'//input[@type='text']' is duplicated. at KaleoDesignerEditWorkflow#SETTINGS_NAME_FIELD
+'//select[@name='assignmentType']' is duplicated. at KaleoDesignerEditWorkflow#SETTINGS_CELL_EDITOR_NOTIFICATIONS_RECIPIENT_EDITOR_TYPE_SELECT
+'//a[@role='menuitem' and contains(.,'Update Due Date')]' is duplicated. at KaleoForms#ASSIGNED_TO_MY_ROLES_MENULIST_UPDATE_DUE_DATE
+'//tr[contains(.,'${key_kfProcessName}')]/td[2]//a' is duplicated. at KaleoForms#REQUESTS_TABLE_STATUS
+'//tr[contains(.,'${key_kfProcessName}')]/td//a' is duplicated. at KaleoForms#MY_PENDING_REQUESTS_TABLE_NAME
+'//tr[contains(.,'${key_kfProcessName}')]/td[2]//a' is duplicated. at KaleoForms#MY_PENDING_REQUESTS_TABLE_STATUS
+'//tr[contains(.,'${key_kfProcessName}')]/td[3]//a' is duplicated. at KaleoForms#MY_PENDING_REQUESTS_TABLE_LAST_ACTIVITY_DATE
+'//tr[contains(.,'${key_kfProcessName}')]/td[4]' is duplicated. at KaleoForms#MY_PENDING_REQUESTS_TABLE_END_DATE
+'//tr[contains(.,'${key_kfProcessName}')]/td[5]//a' is duplicated. at KaleoForms#MY_PENDING_REQUESTS_TABLE_ACTIONS
+'//div[@class='alert alert-info']' is duplicated. at KaleoForms#MY_COMPLETED_REQUESTS_INFO_MESSAGE
+'//tr[contains(.,'${key_kfProcessName}')]/td//a' is duplicated. at KaleoForms#MY_COMPLETED_REQUESTS_TABLE_NAME
+'//tr[contains(.,'${key_kfProcessName}')]/td[2]//a' is duplicated. at KaleoForms#MY_COMPLETED_REQUESTS_TABLE_STATUS
+'//tr[contains(.,'${key_kfProcessName}')]/td[3]//a' is duplicated. at KaleoForms#MY_COMPLETED_REQUESTS_TABLE_LAST_ACTIVITY_DATE
+'//a[@role='menuitem' and contains(.,'Edit')]' is duplicated. at KaleoFormsAdmin#PROCESS_MENULIST_EDIT
+'//a[@role='menuitem' and contains(.,'Permissions')]' is duplicated. at KaleoFormsAdmin#PROCESS_MENULIST_PERMISSIONS
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at KaleoFormsAdmin#PROCESS_MENULIST_DELETE
+'//button[contains(.,'Next')]' is duplicated. at KaleoFormsAdminEditProcess#NEXT_BUTTON
+'//div[@class='required']' is duplicated. at KaleoFormsAdminEditProcess#SELECTED_FIELD_SET_ALERT
+'//div[@class='required']' is duplicated. at KaleoFormsAdminEditProcess#SELECTED_WORKFLOW_ALERT
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at KaleoFormsAdminEditProcessForm#FORM_MENULIST_DELETE
+'//div[@class='lfr-asset-status']' is duplicated. at KaleoFormsViewProcessRecord#WORKFLOW_STATUS
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at ReportsAdmin#REPORTS_ENTRY_MENULIST_DELETE
+'//tr[contains(.,'${key_reportsDefinitionName}')]/td[1]//a' is duplicated. at ReportsAdmin#DEFINITIONS_DEFINITION_TABLE_DEFINITION_NAME
+'//tr[contains(.,'${key_reportsDefinitionName}')]/td[4]//div/a' is duplicated. at ReportsAdmin#DEFINITIONS_DEFINITION_TABLE_ACTIONS
+'xpath=(//tr/td[4]//div/a)[1]' is duplicated. at ReportsAdmin#DEFINITIONS_DEFINITION_TABLE_ACTIONS_1
+'//a[@role='menuitem' and contains(.,'Edit')]' is duplicated. at ReportsAdmin#DEFINITIONS_DEFINITION_MENULIST_EDIT
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at ReportsAdmin#DEFINITIONS_DEFINITION_MENULIST_DELETE
+'xpath=(//tr/td[4]//div/a)[1]' is duplicated. at ReportsAdmin#SOURCES_SOURCE_TABLE_ACTIONS_1
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at ReportsAdmin#SOURCES_SOURCE_MENULIST_DELETE
+'//select[contains(@id,'AdminPortlet_format')]' is duplicated. at ReportsAdminEditScheduleEntry#REPORT_FORMAT_SELECT
+'//input[contains(@id,'AdminPortlet_reportName')]' is duplicated. at ReportsAdminEditScheduleEntry#REPORT_NAME_FIELD
+'//input[contains(@id,'AdminPortlet_emailNotifications')]' is duplicated. at ReportsAdminEditScheduleEntry#EMAIL_NOTIFICATIONS_FIELD
+'//input[contains(@id,'AdminPortlet_emailDelivery')]' is duplicated. at ReportsAdminEditScheduleEntry#EMAIL_RECIPIENT_FIELD
+'//tr[contains(.,'${key_reportsFileName}')]/td' is duplicated. at ReportsAdminViewReportEntry#ENTRY_FILE_TABLE_SCHEDULED_FILE
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at ReportsAdminViewReportEntry#ENTRY_FILE_MENULIST_DELETE
+'//button[@title='Add Tags']' is duplicated. at AddTask#TASK_ADD_TAG_BUTTON
+'//button[contains(.,'Save')]' is duplicated. at AddTask#SAVE_BUTTON
+'//h3[@class='header-title']' is duplicated. at TasksTask#TASK_DESCRIPTION
+'//div[contains(@id,'test')]//div[contains(.,'PASSED')]' is duplicated. at TestJSR#TEST_PORTLET_BODY_PASSED
+'//div[contains(@id,'test')]//div[contains(.,'FAILED')]' is duplicated. at TestJSR#TEST_PORTLET_BODY_FAILED
+'//span[@class='workflow-status']/span' is duplicated. at AssetWorkflow#WORKFLOW_STATUS
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at MyWorkflowTasks#MY_ACCOUNT_IFRAME
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at MyWorkflowTasks#SUCCESS_MESSAGE
+'//div[contains(@class,'empty-message')]/span' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_INFO_MESSAGE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[1]//a' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_ME_TABLE_ASSET_TITLE
+'//a[@role='menuitem' and contains(.,'Approve')]' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_ME_MENULIST_APPROVE
+'//a[@role='menuitem' and contains(.,'Reject')]' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_ME_MENULIST_REJECT
+'//a[@role='menuitem' and contains(.,'Resubmit')]' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_ME_MENULIST_RESUBMIT
+'//a[@role='menuitem' and contains(.,'Update Due Date')]' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_ME_MENULIST_UPDATE_DUE_DATE
+'//a[@role='menuitem' and contains(.,'Assign to Me')]' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_MENULIST_ASSIGN_TO_ME
+'//a[@role='menuitem' and contains(.,'Update Due Date')]' is duplicated. at MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_MENULIST_UPDATE_DUE_DATE
+'//div[contains(@class,'modal-header')]/h3' is duplicated. at MyWorkflowTasks#DIALOG_BOX_TITLE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[2]//a' is duplicated. at MyWorkflowTasks#COMPLETED_TABLE_ASSET_TYPE
+'//tr[contains(.,'${key_workflowTask}') and contains(.,'${key_workflowAssetTitle}')]/td[3]//a' is duplicated. at MyWorkflowTasks#COMPLETED_TABLE_TASK
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[4]//a' is duplicated. at MyWorkflowTasks#COMPLETED_TABLE_LAST_ACTIVITY_DATE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[5]//a' is duplicated. at MyWorkflowTasks#COMPLETED_TABLE_DUE_DATE
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at MyWorkflowTasksTask#MANAGE_MY_ACCOUNT_IFRAME
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at MyWorkflowTasksTask#SUCCESS_MESSAGE
+'//div[@class='lfr-asset-assigned']' is duplicated. at MyWorkflowTasksTask#ASSIGNED_TO
+'//div[@class='lfr-asset-assigned']' is duplicated. at MyWorkflowTasksTask#ASSIGN_TO_ME
+'//div[contains(@class,'modal-header')]/h3' is duplicated. at WorkflowDefinition#DIALOG_BOX_TITLE
+'//div[contains(@class,'modal-body')]' is duplicated. at WorkflowDefinition#DIALOG_BOX_BODY
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at WorkflowSubmissions#MANAGE_MY_ACCOUNT_IFRAME
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[1]//a' is duplicated. at WorkflowSubmissions#PENDING_TABLE_ASSET_TITLE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[2]//a' is duplicated. at WorkflowSubmissions#PENDING_TABLE_ASSET_TYPE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[3]//a' is duplicated. at WorkflowSubmissions#PENDING_TABLE_STATUS
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[4]//a' is duplicated. at WorkflowSubmissions#PENDING_TABLE_DEFINITION
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[5]//a' is duplicated. at WorkflowSubmissions#PENDING_TABLE_LAST_ACTIVITY_DATE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[1]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_ASSET_TITLE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[2]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_ASSET_TYPE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[3]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_STATUS
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[4]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_DEFINITION
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[5]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_LAST_ACTIVITY_DATE
+'//tr[contains(.,'${key_workflowAssetTitle}')]/td[6]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_END_DATE
+'//tr[1]/td[3]//a' is duplicated. at WorkflowSubmissions#COMPLETED_TABLE_STATUS_1
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at WorkflowSubmissionsTask#MANAGE_MY_ACCOUNT_IFRAME
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at WorkflowSubmissionsTask#SUCCESS_MESSAGE
+'//h3[@class='task-content-title']' is duplicated. at WorkflowSubmissionsTask#PREVIEW_TITLE
+'//a[@role='menuitem' and contains(.,'Approve')]' is duplicated. at WorkflowSubmissionsTask#TASKS_MENULIST_APPROVE
+'//a[@role='menuitem' and contains(.,'Reject')]' is duplicated. at WorkflowSubmissionsTask#TASKS_MENULIST_REJECT
+'//textarea[contains(@id,'comment')]' is duplicated. at WorkflowSubmissionsTask#DIALOG_BOX_COMMENT_FIELD
+'//div[@class='panel-toggle' and contains(.,'Activities')]' is duplicated. at WorkflowSubmissionsTask#ACTIVITIES
+'//div[contains(@id,'discussion-status-messages')]' is duplicated. at WorkflowSubmissionsTask#COMMENTS_SUCCESS_MESSAGE
+'//fieldset[contains(@class,'add-comment')]/div/a' is duplicated. at WorkflowSubmissionsTask#COMMENTS_BE_THE_FIRST
+'//fieldset[contains(@class,'add-comment')]/div/span/a/span[contains(.,'Add Comment')]' is duplicated. at WorkflowSubmissionsTask#COMMENTS_ADD_COMMENT
+'//textarea[contains(@id,'_postReplyBody0')]' is duplicated. at WorkflowSubmissionsTask#COMMENTS_ADD_FIELD
+'//button[contains(@id,'_postReplyButton0')]' is duplicated. at WorkflowSubmissionsTask#COMMENTS_REPLY_BUTTON
+'//div[contains(@class,'lfr-api-method') and contains(@class,'lfr-api-section')]/h2' is duplicated. at JSONWSUser#API_METHOD
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at ApplicationDisplayTemplates#SUCCESS_MESSAGE
+'//input[contains(@name,'keywords')]' is duplicated. at ApplicationDisplayTemplates#SEARCH_FIELD
+'//select[contains(@id,'displayStyle')]' is duplicated. at ApplicationDisplayTemplatesConfiguration#DISPLAY_TEMPLATE_SELECT
+'//div[@class='asset-content']' is duplicated. at AP#ASSET_ABSTRACT_DETAIL_CONTENT
+'//h4[@class='asset-title']/a[contains(.,'${key_assetTitle}')]' is duplicated. at APAsset#ASSET_TITLE
+'//button[@title='Select Tags']' is duplicated. at APConfiguration#FILTER_TAGS_SELECT_BUTTON
+'//input[@title='Add Tags']' is duplicated. at APConfiguration#FILTER_TAGS_FIELD
+'//a[@data-title='Select ${key_assetType}']' is duplicated. at APConfiguration#ASSET_SELECTION_MANUAL_ASSET_ENTRIES_ASSET
+'//select[contains(@id,'displayStyle')]' is duplicated. at APConfigurationDisplaysettings#DISPLAY_TEMPLATE_SELECT
+'//tr[contains(.,'${key_entryTitle}')]/td[2]//a' is duplicated. at Blogs#ENTRY_TABLE_TITLE
+'//tr[contains(.,'${key_entryTitle}')]/td[3]' is duplicated. at Blogs#ENTRY_TABLE_AUTHOR
+'//div[contains(@class,'portlet-body') and contains(.,'There are no blogs.')]' is duplicated. at BlogsAggregator#NO_ENTRY_MESSAGE
+'//input[@id='username']' is duplicated. at CAS#NETID_FIELD
+'//input[@id='password']' is duplicated. at CAS#PASSWORD_FIELD
+'//h3[@class='header-title']/span' is duplicated. at Categories#ENTRY_HEADER
+'//h3[@class='header-title']/span' is duplicated. at Categories#SUBCATEGORY_ENTRY_HEADER
+'//tr[contains(.,'${key_subcategoryName}')]//a[contains(@id,'assetCategories')]' is duplicated. at Categories#SUBCATEGORY_ENTRY_MENULIST_ARROW
+'//select[contains(@id,'inputPermissionsViewRole')]' is duplicated. at CategoriesEditCategory#PERMISSIONS_VIEWABLE_BY_SELECT
+'//button[contains(@class,'add-row btn-content')]' is duplicated. at CategoriesEditSubcategory#PROPERTIES_ADD_ROW_BUTTON
+'//button[contains(@class,'delete-row btn-content')]' is duplicated. at CategoriesEditSubcategory#PROPERTIES_DELETE_ROW_BUTTON
+'//input[contains(@id,'key${key_pathNumber}')]' is duplicated. at CategoriesEditSubcategory#PROPERTIES_KEY_FIELD
+'//input[contains(@id,'value${key_pathNumber}')]' is duplicated. at CategoriesEditSubcategory#PROPERTIES_VALUE_FIELD
+'//input[contains(@id,'key0')]' is duplicated. at CategoriesEditSubcategory#PROPERTIES_KEY_FIELD_DEFAULT
+'//input[contains(@id,'value0')]' is duplicated. at CategoriesEditSubcategory#PROPERTIES_VALUE_FIELD_DEFAULT
+'//button[contains(@class,'add-row')]' is duplicated. at CategoriesEditVocabulary#ASSOCIATED_ASSET_TYPES_ADD_BUTTON
+'//button[contains(@class,'delete-row')]' is duplicated. at CategoriesEditVocabulary#ASSOCIATED_ASSET_TYPES_DELETE_BUTTON
+'//a[contains(.,'Permissions')]' is duplicated. at CategoriesEditVocabulary#PERMISSIONS_BAR
+'//fieldset//a[contains(.,'Permissions') and contains(@class,'collapsed')]' is duplicated. at CategoriesEditVocabulary#PERMISSIONS_BAR_COLLAPSED
+'//select[contains(@id,'inputPermissionsViewRole')]' is duplicated. at CategoriesEditVocabulary#PERMISSIONS_VIEWABLE_BY_SELECT
+'//div[contains(@id,'breadcrumbContainer')]//li[contains(.,'${key_dmFolderName}')]' is duplicated. at DocumentsAndMedia#BREADCRUMB_LAST
+'//ul[contains(@id,'toolbarContainer')]/li/a[@title='Actions']' is duplicated. at DocumentsAndMedia#TOOLBAR_ACTIONS
+'//ul[contains(@id,'toolbarContainer')]/li/a[@title='Add']' is duplicated. at DocumentsAndMedia#TOOLBAR_ADD
+'//div[contains(@id,'displayStyleButtons')]/li/a' is duplicated. at DocumentsAndMedia#TOOLBAR_DISPLAY_STYLE_BUTTON
+'//ul[contains(@id,'toolbarContainer')]/li/a[@title='Manage']' is duplicated. at DocumentsAndMedia#TOOLBAR_MANAGE
+'//ul[contains(@id,'toolbarContainer')]/li/a[@title='Sort By']' is duplicated. at DocumentsAndMedia#TOOLBAR_SORT_BY
+'//*[@data-qa-id='searchButton']' is duplicated. at DocumentsAndMedia#SEARCH_BUTTON
+'//button[contains(.,'Remove')]' is duplicated. at DocumentsAndMediaConfiguration#DISPLAY_SETTINGS_ROOT_FOLDER_REMOVE_BUTTON
+'//input[contains(@id,'showFoldersSearch')]' is duplicated. at DocumentsAndMediaConfiguration#DISPLAY_SETTINGS_SHOW_SEARCH_CHECKBOX
+'//iframe[contains(@id,'_openFileEntryTypeView_iframe_')]' is duplicated. at DocumentsAndMediaDocumentTypes#DOCUMENT_TYPES_IFRAME
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DocumentsAndMediaEditCustomDocumentType#DATE_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DocumentsAndMediaEditCustomDocumentType#DECIMAL_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DocumentsAndMediaEditCustomDocumentType#DOCUMENTS_AND_MEDIA_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DocumentsAndMediaEditCustomDocumentType#INTEGER_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DocumentsAndMediaEditCustomDocumentType#NUMBER_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//select' is duplicated. at DocumentsAndMediaEditCustomDocumentType#SELECT_SELECT
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DocumentsAndMediaEditCustomDocumentType#TEXT_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//textarea' is duplicated. at DocumentsAndMediaEditCustomDocumentType#TEXT_BOX_FIELD
+'//span[@class='workflow-version']/strong' is duplicated. at DocumentsAndMediaEditDocument#VERSION
+'//span[@class='workflow-status']/strong' is duplicated. at DocumentsAndMediaEditDocument#STATUS
+'//input[contains(@id,'title')]' is duplicated. at DocumentsAndMediaEditDocument#TITLE_FIELD
+'//textarea[contains(@id,'description')]' is duplicated. at DocumentsAndMediaEditDocument#DESCRIPTION_FIELD
+'//input[contains(@id,'name')]' is duplicated. at DocumentsAndMediaEditDocumentType#NAME_FIELD
+'//textarea[contains(@id,'_description')]' is duplicated. at DocumentsAndMediaEditDocumentType#DETAILS_DESCRIPTION_FIELD
+'//button[contains(.,'Select')]' is duplicated. at DocumentsAndMediaEditDocumentType#DETAILS_PARENT_SELECT_BUTTON
+'//input[contains(@id,'name')]' is duplicated. at DocumentsAndMediaEditFolder#NAME_FIELD
+'//textarea[contains(@id,'description')]' is duplicated. at DocumentsAndMediaEditFolder#DESCRIPTION_FIELD
+'//select[contains(@id,'inputPermissionsViewRole')]' is duplicated. at DocumentsAndMediaEditFolder#PERMISSIONS_SELECT
+'//input[contains(@id,'name')]' is duplicated. at DocumentsAndMediaEditRepository#NAME_FIELD
+'//textarea[contains(@id,'description')]' is duplicated. at DocumentsAndMediaEditRepository#DESCRIPTION_FIELD
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at DocumentsAndMediaMetadataSets#METADATA_SETS_IFRAME
+'//div[contains(@id,'sampledroolsportlet')]//div[@class='portlet-body']' is duplicated. at Drools#WELCOME_MESSAGE
+'//h3[@class='header-title']' is duplicated. at DDL#HEADER_TITLE
+'xpath=(//div[contains(@id,'ddlRecordSearchContainer')]//tr/td[3]//span)' is duplicated. at DDL#RECORD_TABLE_COLUMN_TWO_RECORD_1_VIEW
+'//button[contains(@class,'close')]' is duplicated. at DDL#RECORD_TABLE_PREVIEW_CLOSE
+'//a[@role='menuitem' and contains(.,'View')]' is duplicated. at DDL#MENULIST_VIEW
+'//a[@role='menuitem' and contains(.,'Edit')]' is duplicated. at DDL#MENULIST_EDIT
+'//a[@role='menuitem' and contains(.,'Export')]' is duplicated. at DDL#MENULIST_EXPORT
+'//a[@role='menuitem' and contains(.,'Permissions')]' is duplicated. at DDL#MENULIST_PERMISSIONS
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at DDL#MENULIST_DELETE
+'//button[contains(.,'Add')]' is duplicated. at DDL#SPREADSHEET_EDIT_CONTROLS_ADD_ROWS_BUTTON
+'//ul[contains(@class,'nav') and contains(@class,'nav-pills')]/li/a[contains(.,'Permissions')]' is duplicated. at DDLConfiguration#NAVIGATION_PERMISSIONS
+'//ul[contains(@class,'nav') and contains(@class,'nav-pills')]/li/a[contains(.,'Sharing')]' is duplicated. at DDLConfiguration#NAVIGATION_SHARING
+'//a[@role='menuitem' and contains(.,'Edit')]' is duplicated. at DDLConfiguration#LIST_MENULIST_EDIT
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at DDLConfiguration#LIST_MENULIST_DELETE
+'//h3[@class='header-title']' is duplicated. at DDLEditRecord#HEADER_TITLE
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#BOOLEAN_CHECKBOX
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#BOOLEAN_LABEL_HIDDEN_CHECKBOX
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#DATE_FIELD
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#DECIMAL_FIELD
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#DOCUMENTS_AND_MEDIA_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//input' is duplicated. at DDLEditRecord#INTEGER_FIELD
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#LINK_TO_PAGE_PAGE_SELECT
+'//div[@data-fieldname='${key_fieldName}']//button[contains(.,'Select')]' is duplicated. at DDLEditRecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON
+'//option[contains(.,'${key_ddlRecordFieldData}')]' is duplicated. at DDLEditRecord#LINK_TO_PAGE_SELECT_OPTION
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#NUMBER_FIELD
+'//div[@data-fieldname='${key_fieldName}']//select' is duplicated. at DDLEditRecord#SELECT_SELECT
+'//div[@class='separator']' is duplicated. at DDLEditRecord#SEPARATOR_FIELD
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#TEXT_FIELD
+'//div[@data-fieldname='${key_fieldName}']//input' is duplicated. at DDLEditRecord#WEB_CONTENT_FIELD
+'//div[@data-fieldname='${key_fieldName}']//button[contains(.,'Select')]' is duplicated. at DDLEditRecord#WEB_CONTENT_CHOOSE_FROM_WEB_CONTENT_LIBRARY_BUTTON
+'//button[contains(.,'Add')]' is duplicated. at DDLSpreadsheet#SPREADSHEET_EDIT_CONTROLS_ADD_ROWS_BUTTON
+'//label[contains(.,'More rows at bottom.')]/../select' is duplicated. at DDLSpreadsheet#SPREADSHEET_EDIT_CONTROLS_ADD_ROWS_SELECT_MENULIST
+'//h3[@class='header-title']' is duplicated. at DDMEditStructure#HEADER_TITLE
+'//a[contains(@id,'TabsBack')]' is duplicated. at DDMEditStructure#BACK_TAB
+'//div[@class='required']' is duplicated. at DDMEditStructure#NAME_FIELD_ALERT
+'//div[contains(@class,'button-holder ')]/button[contains(.,'Save')]' is duplicated. at DDMEditStructure#SAVE_BUTTON
+'//input[contains(@id,'description')]' is duplicated. at DDMEditStructure#DETAILS_DESCRIPTION_FIELD
+'//button[contains(.,'Select')]' is duplicated. at DDMEditStructure#DETAILS_PARENT_SELECT_BUTTON
+'//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Settings')]' is duplicated. at DDMEditStructure#SETTINGS_LINK
+'//td[contains(@class,'table-col-name') and contains(.,'Type')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at DDMEditStructure#SETTINGS_TYPE
+'//td[contains(@class,'table-col-name') and contains(.,'Name')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at DDMEditStructure#SETTINGS_NAME
+'//input[@name='${key_fieldName}']' is duplicated. at DDMEditStructure#FORM_FIELD_FIELD
+'//select[@name='${key_fieldName}']' is duplicated. at DDMEditStructure#FORM_FIELD_SELECT
+'//textarea[@name='value']' is duplicated. at DDMEditStructure#SETTINGS_CELL_EDITOR_TEXT_AREA
+'//div[contains(@class,'modal-header')]/h3' is duplicated. at DDMEditStructure#ARE_YOU_SURE_DIALOG_BOX_HEADER
+'//span[@class='portlet-title-text']' is duplicated. at DDMEditTemplate#PORTLET_TITLE
+'//h3[@class='header-title']/span' is duplicated. at DDMEditTemplate#HEADER_TITLE
+'//select[contains(@id,'language')]' is duplicated. at DDMEditTemplate#DETAILS_LANGUAGE_SELECT
+'//textarea[contains(@id,'description')]' is duplicated. at DDMEditTemplate#DETAILS_DESCRIPTION_FIELD
+'//div[@class='navbar ' or contains(@class,'navbar-default')]//li/a[contains(.,'Add')]' is duplicated. at DDMSelectStructure#TOOLBAR_ADD
+'//iframe[contains(@id,'copyStructure_iframe_')]' is duplicated. at DDMSelectTemplate#COPY_STRUCTURE_IFRAME
+'//iframe[contains(@src,'scopeTitle=Templates')]' is duplicated. at DDMSelectTemplate#TEMPLATES_IFRAME
+'//a[contains(@id,'TabsBack')]' is duplicated. at DDMSelectTemplate#BACK_TAB
+'//div[@class='navbar ' or contains(@class,'navbar-default')]//li/a[contains(.,'View All')]' is duplicated. at DDMSelectTemplate#TOOLBAR_VIEW_ALL
+'//div[contains(@id,'DDMPortlet_managementBarContainerId')]//input[contains(@name,'allRowIds')]' is duplicated. at DDMSelectTemplate#TEMPLATE_TABLE_ALL_CHECKBOX
+'//input[contains(@id,'name')]' is duplicated. at Dynamicdatamapping#NAME_FIELD
+'//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Fields')]' is duplicated. at Dynamicdatamapping#FIELDS_LINK
+'//div[@class='tab-content']/div/ul/li[@title='${key_field}' and contains(@class,'property-builder-field-draggable')]/div' is duplicated. at Dynamicdatamapping#FIELDS_FIELD
+'portal/screenshots/ddm/${key_field}_field_icon.png' is duplicated. at Dynamicdatamapping#FIELDS_FIELD_PNG
+'//div[@class='tab-content']/div/ul/li[@title='${key_field}' and not(contains(@class,'property-builder-field-draggable'))]/div' is duplicated. at Dynamicdatamapping#FIELDS_FIELD_UNSELECTABLE
+'//div[@class='tab-content']/div/ul/li[@title='Boolean']/div' is duplicated. at Dynamicdatamapping#FIELDS_BOOLEAN
+'//div[@class='tab-content']/div/ul/li[@title='Date']/div' is duplicated. at Dynamicdatamapping#FIELDS_DATE
+'//div[@class='tab-content']/div/ul/li[@title='Decimal']/div' is duplicated. at Dynamicdatamapping#FIELDS_DECIMAL
+'//div[@class='tab-content']/div/ul/li[@title='Documents and Media']/div' is duplicated. at Dynamicdatamapping#FIELDS_DOCUMENTS_AND_MEDIA
+'//div[@class='tab-content']/div/ul/li[@title='File Upload']/div' is duplicated. at Dynamicdatamapping#FIELDS_FILE_UPLOAD
+'//div[@class='tab-content']/div/ul/li[@title='HTML']/div' is duplicated. at Dynamicdatamapping#FIELDS_HTML
+'//div[@class='tab-content']/div/ul/li[@title='Integer']/div' is duplicated. at Dynamicdatamapping#FIELDS_INTEGER
+'//div[@class='tab-content']/div/ul/li[@title='Link to Page']/div' is duplicated. at Dynamicdatamapping#FIELDS_LINK_TO_PAGE
+'//div[@class='tab-content']/div/ul/li[@title='Number']/div' is duplicated. at Dynamicdatamapping#FIELDS_NUMBER
+'//div[@class='tab-content']/div/ul/li[@title='Radio']/div' is duplicated. at Dynamicdatamapping#FIELDS_RADIO
+'//div[@class='tab-content']/div/ul/li[@title='Select']/div' is duplicated. at Dynamicdatamapping#FIELDS_SELECT
+'//div[@class='tab-content']/div/ul/li[@title='Text']/div' is duplicated. at Dynamicdatamapping#FIELDS_TEXT
+'//div[@class='tab-content']/div/ul/li[@title='Text Box']/div' is duplicated. at Dynamicdatamapping#FIELDS_TEXT_BOX
+'//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Settings')]' is duplicated. at Dynamicdatamapping#SETTINGS_LINK
+'//td[contains(@class,'table-col-name') and contains(.,'Type')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_TYPE
+'//td[contains(@class,'table-col-name') and contains(.,'Field Label')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_FIELD_LABEL
+'//td[contains(@class,'table-col-name') and contains(.,'Show Label')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_SHOW_LABEL
+'//td[contains(@class,'table-col-name') and contains(.,'Read Only')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_READ_ONLY
+'//td[contains(@class,'table-col-name') and contains(.,'Required')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_REQUIRED
+'//td[contains(@class,'table-col-name') and contains(.,'Name')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_NAME
+'//td[contains(@class,'table-col-name') and contains(.,'Predefined Value')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_PREDEFINED_VALUE
+'//td[contains(@class,'table-col-name') and contains(.,'Tip')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_TIP
+'//td[contains(@class,'table-col-name') and contains(.,'Indexable')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_INDEXABLE
+'//td[contains(@class,'table-col-name') and contains(.,'Localizable')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_LOCALIZABLE
+'//td[contains(@class,'table-col-name') and contains(.,'Repeatable')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_REPEATABLE
+'//td[contains(@class,'table-col-name') and contains(.,'Options')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_OPTIONS
+'//td[contains(@class,'table-col-name') and contains(.,'Text')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_TEXT
+'//td[contains(@class,'table-col-name') and contains(.,'Style')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_STYLE
+'//td[contains(@class,'table-col-name') and contains(.,'Width')]//following-sibling::td[contains(@class,'table-col-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_WIDTH
+'portal/screenshots/ddm/form_field_${key_formField}.png' is duplicated. at Dynamicdatamapping#FORM_FIELD_PNG
+'xpath=(//div[contains(@class,'component form-builder-field')]/div)[1]' is duplicated. at Dynamicdatamapping#FORM_FIELD_1_NO_LABEL
+'//legend[contains(.,'Fieldset')]' is duplicated. at Dynamicdatamapping#FORM_FIELDSET
+'//div[contains(@class,'ddm-separator')]' is duplicated. at Dynamicdatamapping#FORM_SEPARATOR
+'xpath=(//div[contains(@class,'component form-builder-field')]/div/label)[1]' is duplicated. at Dynamicdatamapping#FORM_FIELD_1
+'xpath=(//div[contains(@class,'form-builder-checkbox-field-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_BOOLEAN_FIELD_1
+'xpath=(//div[contains(@class,'ddm-date-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_DATE_FIELD_1
+'xpath=(//div[contains(@class,'ddm-decimal-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_DECIMAL_FIELD_1
+'xpath=(//div[contains(@class,'ddm-documentlibrary-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_DOCUMENTS_AND_MEDIA_FIELD_1
+'xpath=(//div[contains(@class,'ddm-fileupload-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_FILE_UPLOAD_FIELD_1
+'xpath=(//div[contains(@class,'ddm-text-html-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_HTML_FIELD_1
+'xpath=(//div[contains(@class,'ddm-integer-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_INTEGER_FIELD_1
+'xpath=(//div[contains(@class,'ddm-link-to-page-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_LINK_TO_PAGE_FIELD_1
+'xpath=(//div[contains(@class,'ddm-number-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_NUMBER_FIELD_1
+'xpath=(//div[contains(@class,'form-builder-radio-field-content')]/label)[1]' is duplicated. at Dynamicdatamapping#FORM_RADIO_FIELD_1
+'xpath=(//div[contains(@class,'form-builder-select-field-content')]/label)[1]' is duplicated. at Dynamicdatamapping#FORM_SELECT_FIELD_1
+'xpath=(//div[contains(@class,'form-builder-field-content') and contains(@class,'form-builder-text-field-content') and contains(@class,'clearfix')])[1]' is duplicated. at Dynamicdatamapping#FORM_TEXT_FIELD_1
+'xpath=(//div[contains(@class,'form-builder-textarea-field-content')])[1]' is duplicated. at Dynamicdatamapping#FORM_TEXT_BOX_FIELD_1
+'xpath=(//button/i[@class='icon-wrench'])[1]' is duplicated. at Dynamicdatamapping#FORM_FIELD_SETTINGS_ICON_1
+'xpath=(//button/i[@class='icon-plus'])[1]' is duplicated. at Dynamicdatamapping#FORM_FIELD_DUPLICATE_ICON_1
+'xpath=(//button/i[@class='icon-trash'])[1]' is duplicated. at Dynamicdatamapping#FORM_FIELD_DELETE_ICON_1
+'//input[@name='${key_fieldName}']' is duplicated. at Dynamicdatamapping#FORM_FIELD_FIELD
+'//textarea[@name='${key_fieldName}']' is duplicated. at Dynamicdatamapping#FORM_FIELD_TEXT_AREA
+'//div[contains(@class,'component form-builder-field')]/div/label[contains(.,'${key_fieldFieldLabel}')]/../div/div/label[contains(.,'${key_fieldOptionsName}')]' is duplicated. at Dynamicdatamapping#FORM_FIELD_RADIO_LABEL
+'//select[@name='${key_fieldName}']' is duplicated. at Dynamicdatamapping#FORM_FIELD_SELECT
+'//input[@name='value']' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_FIELD
+'//textarea[@name='value']' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_TEXT_AREA
+'//input[(@name='value') and (@value='false') ]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_NO_RADIO
+'//label[@class='radio' and contains(.,'No')]/input' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_NOT_INDEXABLE_RADIO
+'//div[contains(@class,'celleditor-edit-option') and input/@value='${key_option}']/input[@title='Name']' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTION
+'//div[contains(@class,'celleditor-edit-option') and input/@value='${key_value}']/input[@title='Value']' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_VALUE
+'//div[contains(@class,'component btn-toolbar')]//button[contains(.,'Save')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_SAVE_BUTTON
+'//div[contains(@class,'component btn-toolbar')]//button[contains(.,'Cancel')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_CANCEL_BUTTON
+'//div[contains(@class,'celleditor-edit-option-row')][1]//input[contains(@class,'celleditor-edit-input-name')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_NAME_1
+'//div[contains(@class,'celleditor-edit-option-row')][2]//input[contains(@class,'celleditor-edit-input-name')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_NAME_2
+'//div[contains(@class,'celleditor-edit-option-row')][3]//input[contains(@class,'celleditor-edit-input-name')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_NAME_3
+'xPath=(//div[contains(@class,'celleditor-edit-option-row')])[1]//input[contains(@class,'celleditor-edit-input-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_VALUE_1
+'xPath=(//div[contains(@class,'celleditor-edit-option-row')])[2]//input[contains(@class,'celleditor-edit-input-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_VALUE_2
+'xPath=(//div[contains(@class,'celleditor-edit-option-row')])[3]//input[contains(@class,'celleditor-edit-input-value')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_VALUE_3
+'//div[contains(@class,'celleditor-edit yui3-dd-drop')]//a[contains(@class,'celleditor-edit-add-option')]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_ADD_OPTIONS
+'//div[contains(@class,'celleditor-edit-option-row')]//a[contains(@class,'celleditor-edit-delete-option')][1]' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_OPTIONS_REMOVE_1
+'//label/input[@value='${key_widthSize}']' is duplicated. at Dynamicdatamapping#SETTINGS_CELL_EDITOR_WIDTH
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label' is duplicated. at Form#FIELD_LABEL
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label' is duplicated. at FormFields#RADIO_LABEL
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label[contains(.,'${key_fieldLabel}')]' is duplicated. at FormFields#TEXT_MULTILINE_LABEL
+'//input[@type='text' and contains(@id,'${key_fieldName}')]' is duplicated. at FormFields#TEXT_FIELD
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label[contains(.,'${key_fieldLabel}')]' is duplicated. at FormFields#TEXT_LABEL
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label' is duplicated. at FormFields#SELECT_LABEL
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label[contains(.,'${key_fieldLabel}')]' is duplicated. at FormFields#SWITCHER_LABEL
+'//div[contains(@data-fieldname,'${key_fieldName}')]//label' is duplicated. at FormFields#UPLOAD_LABEL
+'//h3[@class='header-title']/span' is duplicated. at KnowledgeBaseArticle#HEADER_TITLE
+'//button[contains(.,'Select Files')]' is duplicated. at KnowledgeBaseArticle#ATTACHMENTS_SELECT_FILES_BUTTON
+'//span[@class='taglib-asset-categories-summary']' is duplicated. at KnowledgeBaseArticle#CATEGORY_HEADER
+'//input[contains(@id,'emailFromName')]' is duplicated. at KnowledgeBaseConfiguration#EMAIL_FROM_NAME_FIELD
+'//input[contains(@id,'emailFromAddress')]' is duplicated. at KnowledgeBaseConfiguration#EMAIL_FROM_ADDRESS_FIELD
+'//button[@title='Move selected items from Current to Available.']' is duplicated. at LanguageConfiguration#MOVE_CURRENT_TO_AVAILABLE_BUTTON
+'//button[@title='Move selected items from Available to Current.']' is duplicated. at LanguageConfiguration#MOVE_AVAILABLE_TO_CURRENT_BUTTON
+'//select[contains(@id,'displayStyle')]' is duplicated. at LanguageConfiguration#DISPLAY_TEMPLATE_SELECT
+'//input[@type='password']' is duplicated. at Store#PASSWORD_FIELD
+'//input[@value='Search']' is duplicated. at Store#PURCHASED_SEARCH_BUTTON
+'//*[@data-qa-id='searchButton']' is duplicated. at MessageBoards#SEARCH_BUTTON
+'//li[contains(.,'${key_categoryName}')]//span[contains(.,'${key_threadsNumber}')]' is duplicated. at MessageBoards#CATEGORY_LIST_USERNAME
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[1]//input[@type='checkbox']' is duplicated. at MessageBoards#CATEGORY_TABLE_ADMIN_CHECKBOX
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td//a[2]' is duplicated. at MessageBoards#CATEGORY_TABLE_ADMIN_CATEGORY_SUBCATEGORY
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[3]//a' is duplicated. at MessageBoards#CATEGORY_TABLE_ADMIN_CATEGORIES
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[4]//a' is duplicated. at MessageBoards#CATEGORY_TABLE_ADMIN_THREADS
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td//div/a' is duplicated. at MessageBoards#CATEGORY_TABLE_ADMIN_ACTIONS
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[1]//div/a' is duplicated. at MessageBoards#CATEGORY_TABLE_ADMIN_ACTIONS_GENERIC
+'//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td[2]//a' is duplicated. at MessageBoards#THREAD_TABLE_FLAG
+'//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td[1]//input[@type='checkbox']' is duplicated. at MessageBoards#THREAD_TABLE_ADMIN_CHECKBOX
+'//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td[1]//a | //div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td[2]//a' is duplicated. at MessageBoards#THREAD_TABLE_ADMIN_THREAD
+'//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td[3]//a' is duplicated. at MessageBoards#THREAD_TABLE_ADMIN_FLAG
+'//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]//div[contains(@class,'user-info')]//span[contains(@class,'user-name')]' is duplicated. at MessageBoards#THREAD_TABLE_ADMIN_LAST_POST
+'//input[contains(@id,'emailFromName')]' is duplicated. at MessageBoardsAdminConfiguration#EMAIL_FROM_NAME
+'//input[contains(@id,'emailFromAddress')]' is duplicated. at MessageBoardsAdminConfiguration#EMAIL_FROM_ADDRESS
+'//*[@data-qa-id='row']//div[contains(.,'${key_userScreenName}')]/h5[1]' is duplicated. at MessageBoardsBannedUsers#BANNED_USERS_TABLE_BAN_DATE
+'//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[3]//a' is duplicated. at MessageBoardsSelectCategory#CATEGORY_TABLE_THREADS
+'//h3[@class='header-title']' is duplicated. at MessageBoardsSplitThread#TITLE_HEADER
+'xpath=(//span[@class='user-name'])[1]' is duplicated. at MessageBoardsThread#MESSAGE_USERNAME_1
+'xpath=(//span[@class='user-name'])[2]' is duplicated. at MessageBoardsThread#MESSAGE_USERNAME_2
+'xpath=(//span[@class='user-name'])[3]' is duplicated. at MessageBoardsThread#MESSAGE_USERNAME_3
+'//li[contains(@class,'upload-error')]//span[@class='error-message']' is duplicated. at MessageBoardsThread#MESSAGE_ATTACHMENT_INVALID_SIZE_ERROR
+'//div[contains(@id,'cke__')]' is duplicated. at MessageBoardsThread#QUICK_REPLY_BODY_FIELD
+'//button[@type='button' and contains(.,'Cancel')]' is duplicated. at MessageBoardsThread#QUICK_REPLY_CANCEL_BUTTON
+'//h3[contains(.,'Report')]' is duplicated. at MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_HEADER
+'//p[contains(.,'You are about to report a violation')]' is duplicated. at MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING
+'//a[@href='/c/portal/terms_of_use']' is duplicated. at MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING_TERMS_OF_USE_LINK
+'//button[contains(.,'${key_saveButton}')]' is duplicated. at MyAccount#SAVE_BUTTON_LOCALIZED
+'//tr[contains(.,'${key_siteName}')]/td[4]//span/a/span' is duplicated. at MySitesAvailableSites#SITE_TABLE_LEAVE_SITE_NAME
+'//tr[contains(.,'${key_siteName}')]/td[4]//span/a/span' is duplicated. at MySitesAvailableSites#SITE_TABLE_REQUEST_MEMBERSHIP
+'//input[@value='Search']' is duplicated. at NetworkUtilities#SEARCH_BUTTON
+'//input[@name='_com_liferay_network_utilities_web_portlet_NetworkUtilitiesPortlet_domain']' is duplicated. at NetworkUtilities#WHOIS_FIELD
+'//label[contains(.,'Active')]//span[contains(@class,'toggle-switch-handle')]' is duplicated. at PageTemplates#ACTIVE_TOGGLE_SWITCH
+'xpath=(//tr/td[2])[1]' is duplicated. at PageTemplates#PAGE_TEMPLATE_TABLE_DESCRITPION_1
+'//tr[contains(.,'${key_orgName}')]/td[2]' is duplicated. at PasswordPolicies#ASSIGN_ORGANIZATIONS_TABLE_NAME
+'//select[contains(@id,'currentLanguageIds')]' is duplicated. at PortalSettingsDisplaySettings#AVAILABLE_LANGUAGES_CURRENT_SELECT
+'//select[contains(@id,'currentLanguageIds')]/option' is duplicated. at PortalSettingsDisplaySettings#AVAILABLE_LANGUAGES_CURRENT_PRESENT
+'//select[contains(@id,'availableLanguageIds')]' is duplicated. at PortalSettingsDisplaySettings#AVAILABLE_LANGUAGES_AVAILABLE_SELECT
+'//div[contains(@id,'cke')]' is duplicated. at PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITH_PASSWORD
+'//h3[@class='modal-title']' is duplicated. at ProductMenu#SITES_MODAL_TITLE
+'//a[contains(@id,'mySitesLink')]' is duplicated. at ProductMenu#PRODUCT_MENU_PANEL_SITE_SELECTOR
+'//textarea[contains(@class,'field-input')]' is duplicated. at QuickNote#NOTE_CONTENT_TEXTAREA
+'//div[@class='portlet-body']/div[contains(.,'${key_assetType}')]' is duplicated. at RecycleBin#SUCCESS_MESSAGE_CONTENT
+'//div[@class='portlet-body']/div/em[2]/a[contains(.,'${key_assetRestoreLocation}')]' is duplicated. at RecycleBin#SUCCESS_MESSAGE_RESTORE_LOCATION
+'//input[contains(@id,'newName')]' is duplicated. at RecycleBin#RECYCLE_BIN_WARNING_KEEP_AND_RENAME_FIELD
+'//div[contains(@class,'alert-block')]' is duplicated. at RecycleBin#RECYCLE_BIN_FOLDER_WARNING_INFO
+'//button[contains(.,'Choose This Folder')]' is duplicated. at RecycleBin#RECYCLE_BIN_FOLDER_WARNING_CHOOSE_THIS_FOLDER_BUTTON
+'//div[contains(@class,'categoriesselector')]/ul/li/span[contains(.,'${key_categoryName}')]' is duplicated. at RelatedassetsConfiguration#CATEGORY
+'//div[@class='alert alert-info']' is duplicated. at RelatedassetsSelect#INFO_MESSAGE
+'//*[@data-qa-id='searchButton']' is duplicated. at Roles#ROLE_SEARCH_BUTTON
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at RolesPermissions#SUCCESS_MESSAGE
+'//input[contains(@value,'ACCESS_IN_CONTROL_PANEL')]' is duplicated. at RolesPermissions#CONTROL_PANEL_USERS_USER_GROUPS_GENERAL_PERMISSIONS_ACCESS_IN_CONTROL_PANEL_CHECKBOX
+'//input[contains(@value,'ACCESS_IN_CONTROL_PANEL')]' is duplicated. at RolesPermissions#CONTROL_PANEL_SITES_SITES_GENERAL_PERMISSIONS_ACCESS_IN_CONTROL_PANEL_CHECKBOX
+'//input[contains(@name,'allRowIds')]' is duplicated. at RolesPermissions#SITE_ADMIN_PAGES_SITE_PAGES_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[1]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'//tbody//input[contains(@value,'ACCESS_IN_CONTROL_PANEL')]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_GENERAL_PERMISSIONS_ACCESS_IN_SITE_ADMINISTRATION_CHECKBOX
+'//input[contains(@value,'VIEW')]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_GENERAL_PERMISSIONS_VIEW_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[1]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_BLOGS_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'//tbody//input[contains(@value,'ACCESS_IN_CONTROL_PANEL')]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_BLOGS_GENERAL_PERMISSIONS_ACCESS_IN_SITE_ADMINISTRATION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[2]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_BLOGS_RESOURCE_PERMISSIONS_BLOGS_ENTRIES_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[3]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_BLOGS_RESOURCE_PERMISSIONS_BLOGS_ENTRY_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[1]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_BOOKMARKS_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'//input[contains(@name,'allRowIds')]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_KALEO_FORMS_ADMIN_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[2]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_KALEO_FORMS_ADMIN_RESOURCE_PERMISSIONS_KALEO_FORMS_PROCESS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[3]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_KALEO_FORMS_ADMIN_RESOURCE_PERMISSIONS_KALEO_FORMS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[4]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_KALEO_FORMS_ADMIN_RESOURCE_PERMISSIONS_KALEO_FORMS_FIELD_SETS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[1]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_MESSAGE_BOARDS_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'//tbody//input[contains(@value,'ACCESS_IN_CONTROL_PANEL')]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_MESSAGE_BOARDS_GENERAL_PERMISSIONS_ACCESS_IN_SITE_ADMINISTRATION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[1]' is duplicated. at RolesPermissions#SITE_ADMIN_CONTENT_WIKI_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[1]' is duplicated. at RolesPermissions#SITE_ADMIN_MEMBERS_SITE_MEMBERSHIPS_GENERAL_PERMISSIONS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[2]' is duplicated. at RolesPermissions#SITE_ADMIN_MEMBERS_SITE_TEAMS_RESOURCE_PERMISSIONS_TEAM_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[2]' is duplicated. at RolesPermissions#SITE_ADMIN_APPLICATIONS_DOCUMENTS_AND_MEDIA_RESOURCE_PERMISSIONS_DOCUMENTS_ACTION_CHECKBOX
+'xpath=(//input[contains(@name,'allRowIds')])[4]' is duplicated. at RolesPermissions#SITE_ADMIN_APPLICATIONS_DOCUMENTS_AND_MEDIA_RESOURCE_PERMISSIONS_DOCUMENT_ACTION_CHECKBOX
+'//input[contains(@name,'allRowIds')]' is duplicated. at RolesPermissions#SITE_ADMIN_APPLICATIONS_SOCIAL_OFFICE_ANNOUNCEMENTS_APPLICATIONS_PERMISSIONS_ACTION_CHECKBOX
+'//input[contains(@name,'allRowIds')]' is duplicated. at RolesPermissions#SITE_ADMIN_APPLICATIONS_WEB_CONTENT_DISPLAY_APPLICATIONS_PERMISSIONS_ACTION_CHECKBOX
+'//input[contains(@id,'permissionNavigationSearch')]' is duplicated. at RolesPermissionsNavigation#SEARCH_FIELD
+'//tr[contains(.,'${key_permissionNavigationValue}') and contains(.,'${key_permissionDefinitionValue}')]/td' is duplicated. at RolesPermissionsSummary#PERMISSION_TABLE_PERMISSIONS
+'//*[@id='feedTitleText']' is duplicated. at RSS#FEED_TITLE
+'//select[contains(@id,'displayStyle')]' is duplicated. at RSSFeed#DISPLAY_SETTINGS_DISPLAY_TEMPLATE_OPTION
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at CPSAMLAdmin#SUCCESS_MESSAGE
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at CPSAMLAdminAddServiceProvider#SUCCESS_MESSAGE
+'//button[contains(.,'Save')]' is duplicated. at CPSAMLAdminAddServiceProvider#SAVE_BUTTON
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at CPSAMLAdminIdentityProvider#SUCCESS_MESSAGE
+'//button[contains(.,'Save')]' is duplicated. at CPSAMLAdminIdentityProvider#SAVE_BUTTON
+'//div[contains(@class,'alert') and contains(@class,'alert-success')]' is duplicated. at CPSAMLAdminIdentityProviderConnection#SUCCESS_MESSAGE
+'//button[contains(.,'Save')]' is duplicated. at CPSAMLAdminIdentityProviderConnection#SAVE_BUTTON
+'//input[contains(@id,'SamlAdminPortlet_name')]' is duplicated. at CPSAMLAdminIdentityProviderConnection#IDENTITY_PROVIDER_CONNECTION_NAME_FIELD
+'//input[contains(@id,'SamlAdminPortlet_metadataUrl')]' is duplicated. at CPSAMLAdminIdentityProviderConnection#IDENTITY_PROVIDER_CONNECTION_METADATA_URL_FIELD
+'//select[contains(@id,'SamlAdminPortlet_nameIdFormat')]' is duplicated. at CPSAMLAdminIdentityProviderConnection#IDENTITY_PROVIDER_CONNECTION_NAME_IDENTIFIER_FORMAT_SELECT
+'//a[@role='menuitem' and contains(.,'Edit')]' is duplicated. at CPSAMLAdminServiceProviderConnections#SERVICE_PROVIDER_CONNECTIONS_MENULIST_EDIT
+'//a[@role='menuitem' and contains(.,'Delete')]' is duplicated. at CPSAMLAdminServiceProviderConnections#SERVICE_PROVIDER_CONNECTIONS_MENULIST_DELETE
+'//button[contains(.,'Search')]' is duplicated. at ServerAdministration#PROPERTIES_PORTAL_PROPERTIES_SEARCH_BUTTON
+'//button[contains(.,'Search')]' is duplicated. at ServerAdministrationProperties#PORTAL_PROPERTIES_SEARCH_BUTTON
+'//tr[contains(.,'${key_propertyName}')]/td[1]' is duplicated. at ServerAdministrationProperties#PORTAL_PROPERTIES_TABLE_PROPERTY
+'//tr[contains(.,'${key_propertyName}')]/td[2]' is duplicated. at ServerAdministrationProperties#PORTAL_PROPERTIES_TABLE_VALUE
+'//div[contains(@class,'tooltip-content')]/div' is duplicated. at ServerAdministrationProperties#PORTAL_PROPERTIES_TABLE_SOURCE
+'//input[@id='_137_uploadServletRequestImplMaxSize']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_GENERAL_OVERALL_MAX_FILE_SIZE_FIELD
+'//input[@id='_137_uploadServletRequestImplTempDir']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_GENERAL_TEMP_STORAGE_DIRECTORY_FIELD
+'//input[@id='_137_dlFileMaxSize']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_DOCS_AND_MEDIA_MAX_FILE_SIZE_FIELD
+'//input[@id='_137_dlFileEntryPreviewableProcessorMaxSize']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_DOCS_AND_MEDIA_MAX_PREVIEWABLE_FILE_SIZE_FIELD
+'//input[@id='_137_dlFileEntryThumbnailMaxHeight']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_DOCS_AND_MEDIA_MAX_THUMBNAIL_HEIGHT_FIELD
+'//input[@id='_137_dlFileEntryThumbnailMaxWidth']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_DOCS_AND_MEDIA_MAX_THUMBNAIL_WIDTH_FIELD
+'//input[@id='_137_dlFileExtensions']' is duplicated. at ServerAdministrationProperties#FILE_UPLOADS_DOCS_AND_MEDIA_ALLOWED_FILE_EXTENSIONS_FIELD
+'//span[contains(@onmouseover,'ToolTip')]' is duplicated. at ServerAdministrationResources#SOURCE
+'//section[@id='portlet_com_liferay_login_web_portlet_LoginPortlet']//h2[@class='portlet-title-text']' is duplicated. at SignIn#PORTLET_TITLE_LOCALIZED
+'//section[@id='portlet_com_liferay_login_web_portlet_LoginPortlet']//div[@class='portlet-body']' is duplicated. at SignIn#PORTLET_CONTENT_LOCALIZED
+'//section[@id='portlet_com_liferay_login_web_portlet_LoginPortlet']//div[@class='portlet-body']/a' is duplicated. at SignIn#PORTLET_CONTENT_USER_NAME_LOCALIZED
+'//select[contains(@id,'displayStyle')]' is duplicated. at SiteMapConfiguration#DISPLAY_TEMPLATE_SELECT
+'//a[contains(@id,'selectDDMTemplate') and contains(.,'Manage Templates')]' is duplicated. at SiteMapConfiguration#DISPLAY_TEMPLATE_LINK
+'//input[contains(@id,'title')]' is duplicated. at SitePages#DETAILS_HTML_TITLE_FIELD
+'//input[contains(@id,'friendlyURL')]' is duplicated. at SitePages#DETAILS_FRIENDLY_URL_FIELD
+'//*[@data-qa-id='addPublicPage']' is duplicated. at SitePages#ADD_PUBLIC_PAGE_MENUITEM
+'//*[@data-qa-id='editPublicPages']' is duplicated. at SitePages#EDIT_PUBLIC_PAGE_MENUITEM
+'//*[@data-qa-id='addPrivatePage']' is duplicated. at SitePages#ADD_PRIVATE_PAGE_MENUITEM
+'//*[@data-qa-id='editPrivatePages']' is duplicated. at SitePages#EDIT_PRIVATE_PAGE_MENUITEM
+'//li[@role='menuitem' and @data-value='${key_localizationName}']/a' is duplicated. at SitePagesEditPage#LOCALIZED_FLAG_ICON
+'//input[contains(@id,'friendlyURL')]' is duplicated. at SitePagesEditPage#FRIENDLY_URL_FIELD
+'//select[contains(@id,'type')]' is duplicated. at SitePagesEditPage#PAGE_TYPE_LAYOUT
+'//select[contains(@id,'fullPageApplication')]' is duplicated. at SitePagesEditPage#PAGE_TYPE_FULL_PAGE_APPLICATION_SELECT
+'//a[@role='menuitem' and contains(.,'Export')]' is duplicated. at SitePagesExport#EXPORT_TEMPLATES_TABLE_EXPORT_BUTTON
+'//div[contains(@id,'usersSearchContainer')]//tr[contains(.,'${key_userScreenName}')]/td[2]' is duplicated. at SiteMembershipsAssignUserRoles#USER_TABLE_USER_NAME
+'//div[contains(@id,'usersSearchContainer')]//tr[contains(.,'${key_userScreenName}')]/td[3]' is duplicated. at SiteMembershipsAssignUserRoles#USER_TABLE_SCREEN_NAME
+'link=Current' is duplicated. at SiteMembershipsUserGroups#CURRENT
+'link=Available' is duplicated. at SiteMembershipsUserGroups#AVAILABLE
+'//tr[contains(.,'${key_userGroupName}')]/td[2]' is duplicated. at SiteMembershipsUserGroups#USER_GROUP_TABLE_USER_NAME
+'//tr[contains(.,'${key_userGroupName}')]/td[3]' is duplicated. at SiteMembershipsUserGroups#USER_GROUP_TABLE_SCREEN_NAME
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Details')]' is duplicated. at SitesEditSite#MENU_BASIC_INFORMATION_DETAILS
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Site URL')]' is duplicated. at SitesEditSite#MENU_BASIC_INFORMATION_SITE_URL
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Recycle Bin')]' is duplicated. at SitesEditSite#MENU_BASIC_INFORMATION_RECYCLE_BIN
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Display Settings')]' is duplicated. at SitesEditSite#MENU_MISCELLANEOUS_DISPLAY_SETTINGS
+'//select[contains(@id,'customJspServletContextName')]' is duplicated. at SiteSettings#APPLICATION_ADAPTER_SELECT
+'//label[contains(@for,'active')]' is duplicated. at SiteSettings#ACTIVE_LABEL
+'//div[contains(@id,'parentGroupSearchContainerSearchContainer')]/table/tbody/tr[contains(.,'${key_parentSiteName}')]/td' is duplicated. at SiteSettings#PARENT_SITE_TABLE_NAME
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Details')]' is duplicated. at SiteSettings#MENU_BASIC_INFORMATION_DETAILS
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Categorization')]' is duplicated. at SiteSettings#MENU_BASIC_INFORMATION_CATEGORIZATION
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Site URL')]' is duplicated. at SiteSettings#MENU_BASIC_INFORMATION_SITE_URL
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Site Template')]' is duplicated. at SiteSettings#MENU_BASIC_INFORMATION_SITE_TEMPLATE
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Recycle Bin')]' is duplicated. at SiteSettings#MENU_BASIC_INFORMATION_RECYCLE_BIN
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Sitemap')]' is duplicated. at SiteSettings#MENU_SEARCH_ENGINE_OPTIMIZATION_SITEMAP
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Robots')]' is duplicated. at SiteSettings#MENU_SEARCH_ENGINE_OPTIMIZATION_ROBOTS
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Default User Associations')]' is duplicated. at SiteSettings#MENU_ADVANCED_DEFAULT_USER_ASSOCIATIONS
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Staging')]' is duplicated. at SiteSettings#MENU_ADVANCED_STAGING
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Content Sharing')]' is duplicated. at SiteSettings#MENU_ADVANCED_CONTENT_SHARING
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Recycle Bin')]' is duplicated. at SiteSettings#MENU_ADVANCED_RECYCLE_BIN
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Custom Fields')]' is duplicated. at SiteSettings#MENU_MISCELLANEOUS_CUSTOM_FIELDS
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'Display Settings')]' is duplicated. at SiteSettings#MENU_MISCELLANEOUS_DISPLAY_SETTINGS
+'//ul[contains(@class,'nav-list')]/li/a[contains(.,'${key_displaySettings}')]' is duplicated. at SiteSettings#MENU_MISCELLANEOUS_DISPLAY_SETTINGS_LOCALIZED
+'//div[contains(@class,'form-group')]/label[contains(@for,'type')]' is duplicated. at SiteSettings#MEMBERSHIP_OPTIONS_MEMBERSHIP_TYPE_LABEL
+'//div[contains(@class,'form-group')]/select[contains(@id,'type')]' is duplicated. at SiteSettings#MEMBERSHIP_OPTIONS_MEMBERSHIP_TYPE
+'//h3[contains(.,'Pages')]' is duplicated. at SiteSettings#PAGES_LABEL
+'//div[contains(@class,'panel-toggle')]/span[contains(.,'Public Pages')]' is duplicated. at SiteSettings#PAGES_PUBLIC_PAGES_LABEL
+'//div[(contains(@class,'control-group') or contains(@class,'form-group'))]/label[contains(@for,'publicLayoutSetPrototypeId')]' is duplicated. at SiteSettings#PAGES_PUBLIC_PAGES_SITE_TEMPLATE_LABEL
+'//div[(contains(@class,'control-group') or contains(@class,'form-group'))]/select[contains(@id,'publicLayoutSetPrototypeId')]' is duplicated. at SiteSettings#PAGES_PUBLIC_PAGES_SITE_TEMPLATE_SELECT
+'//div[contains(@class,'panel-toggle')]/span[contains(.,'Private Pages')]' is duplicated. at SiteSettings#PAGES_PRIVATE_PAGES_LABEL
+'//div[(contains(@class,'control-group') or contains(@class,'form-group'))]/label[contains(@for,'privateLayoutSetPrototypeId')]' is duplicated. at SiteSettings#PAGES_PRIVATE_PAGES_SITE_TEMPLATE_LABEL
+'//div[(contains(@class,'control-group') or contains(@class,'form-group'))]/select[contains(@id,'privateLayoutSetPrototypeId')]' is duplicated. at SiteSettings#PAGES_PRIVATE_PAGES_SITE_TEMPLATE_SELECT
+'//select[contains(@id,'languageId')]' is duplicated. at SiteSettingsDisplaySettings#DEFAULT_LANGUAGE_SELECT
+'//select[contains(@id,'currentLanguageIds')]' is duplicated. at SiteSettingsDisplaySettings#AVAILABLE_LANGUAGES_CURRENT_SELECT
+'//select[contains(@id,'currentLanguageIds')]/option' is duplicated. at SiteSettingsDisplaySettings#AVAILABLE_LANGUAGES_CURRENT_PRESENT
+'//select[contains(@id,'availableLanguageIds')]' is duplicated. at SiteSettingsDisplaySettings#AVAILABLE_LANGUAGES_AVAILABLE_SELECT
+'//div[contains(@id,'userGroupsSearchContainerSearchContainer')]//tr[contains(.,'${key_userGroupName}')]/td[1]//input[contains(@name,'rowIds')]' is duplicated. at SiteTeamsAssignMembers#USER_GROUPS_TABLE_CHECKBOX
+'//div[contains(@id,'userGroupsSearchContainerSearchContainer')]//tr[contains(.,'${key_userGroupName}')]/td[2]' is duplicated. at SiteTeamsAssignMembers#USER_GROUPS_TABLE_NAME
+'//span[@class='portlet-title-text']' is duplicated. at SiteTemplates#PORTLET_TITLE
+'xpath=(//tr/td[2])[1]' is duplicated. at SiteTemplates#SITE_TEMPLATE_TABLE_DESCRIPTION_1
+'xpath=(//tr/td[2])[2]' is duplicated. at SiteTemplates#SITE_TEMPLATE_TABLE_DESCRIPTION_2
+'//input[contains(@id,'choiceDescriptiona')]' is duplicated. at Polls#CHOICE_A_FIELD
+'//input[contains(@id,'choiceDescriptionb')]' is duplicated. at Polls#CHOICE_B_FIELD
+'//select[contains(@id,'displayActivityCounterName0')]' is duplicated. at UserStatisticsConfiguration#SETUP_COUNTERS_DISPLAY_ACTIVITY_COUNTER_NAME_DROPDOWN
+'//textarea[contains(@id,'_description')]' is duplicated. at StagingManageVariations#DESCRIPTION_FIELD
+'//div[contains(@class,'widget-content-expanded') and contains(.,'${key_contentName}')]//div[contains(@class,'modal-body')]//ul/li[@class='handler-control' and contains(.,'${key_subContent}')]//input[contains(@data-name,'${key_subSubContent}')]' is duplicated. at StagingPublishToLive#CONTENT_CHOOSE_CONTENT_SUB_SUBCONTENT_CHECKBOX
+'//select[contains(@id,'displayStyle')]' is duplicated. at TagsNavigationConfiguration#DISPLAY_TEMPLATE_SELECT
+'//input[contains(@id,'name')]' is duplicated. at UserGroups#ADVANCED_SEARCH_NAME
+'//input[contains(@id,'description')]' is duplicated. at UserGroups#ADVANCED_SEARCH_DESCRIPTION
+'//input[contains(@name,'allRowIds')]' is duplicated. at UserGroups#USER_GROUP_TABLE_ALL_CHECKBOX
+'//tr[contains(.,'${key_userGroupName}')]/td[2]' is duplicated. at UserGroups#USER_GROUP_TABLE_NAME
+'//a[contains(@id,'TabsBack')]' is duplicated. at UserGroupsAssignUsers#BACK
+'//input[contains(@name,'keywords')]' is duplicated. at UserGroupsAssignUsers#SEARCH_FIELD
+'//button[contains(.,'Search')]' is duplicated. at UserGroupsAssignUsers#SEARCH_BUTTON
+'//select[contains(@id,'andOperator')]' is duplicated. at UserGroupsAssignUsers#ADVANCED_SEARCH_MATCH_SELECT
+'//input[contains(@id,'firstName')]' is duplicated. at UserGroupsAssignUsers#ADVANCED_SEARCH_FIRST_NAME_FIELD
+'//input[contains(@id,'middleName')]' is duplicated. at UserGroupsAssignUsers#ADVANCED_SEARCH_MIDDLE_NAME_FIELD
+'//input[contains(@id,'lastName')]' is duplicated. at UserGroupsAssignUsers#ADVANCED_SEARCH_LAST_NAME_FIELD
+'//input[contains(@id,'screenName')]' is duplicated. at UserGroupsAssignUsers#ADVANCED_SEARCH_SCREEN_NAME_FIELD
+'//input[contains(@id,'emailAddress')]' is duplicated. at UserGroupsAssignUsers#ADVANCED_SEARCH_EMAIL_ADDRESS_FIELD
+'//textarea[contains(@id,'description')]' is duplicated. at UserGroupsEditUserGroup#DESCRIPTION_FIELD
+'//span[@id='toggle_id_users_admin_user_searchtoggleAdvanced']' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_ICON
+'//select[contains(@id,'andOperator')]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_MATCH_SELECT
+'//input[contains(@id,'firstName')]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_FIRST_NAME_FIELD
+'//input[contains(@id,'middleName')]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_MIDDLE_NAME_FIELD
+'//input[contains(@id,'lastName')]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_LAST_NAME_FIELD
+'//input[contains(@id,'screenName')]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_SCREEN_NAME_FIELD
+'//input[contains(@id,'emailAddress')]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#ADVANCED_SEARCH_EMAIL_ADDRESS_FIELD
+'xpath=(//tr/td[2])[1]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#USER_TABLE_USER_NAME_1
+'xpath=(//tr/td[3])[1]' is duplicated. at UsersAndOrganizationsAssignOrganizationalRoles#USER_TABLE_SCREEN_NAME_1
+'//a[contains(@id,'TabsBack')]' is duplicated. at UsersAndOrganizationsAssignUsers#BACK
+'//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Current')]' is duplicated. at UsersAndOrganizationsAssignUsers#CURRENT_TAB
+'//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Available')]' is duplicated. at UsersAndOrganizationsAssignUsers#AVAILABLE_TAB
+'//span[@id='toggle_id_users_admin_user_searchtoggleAdvanced']' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_ICON
+'//select[contains(@id,'andOperator')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_MATCH_SELECT
+'//input[contains(@id,'firstName')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_FIRST_NAME_FIELD
+'//input[contains(@id,'middleName')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_MIDDLE_NAME_FIELD
+'//input[contains(@id,'lastName')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_LAST_NAME_FIELD
+'//input[contains(@id,'screenName')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_SCREEN_NAME_FIELD
+'//input[contains(@id,'emailAddress')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_EMAIL_ADDRESS_FIELD
+'//select[contains(@id,'status')]' is duplicated. at UsersAndOrganizationsAssignUsers#ADVANCED_SEARCH_STATUS_SELECT
+'//tr[contains(.,'${key_userScreenName}')]/td[1]//input' is duplicated. at UsersAndOrganizationsAssignUsers#USER_TABLE_CHECKBOX
+'//tr[contains(.,'${key_userScreenName}')]/td[2]' is duplicated. at UsersAndOrganizationsAssignUsers#USER_TABLE_USER_NAME
+'//tr[contains(.,'${key_userScreenName}')]/td[3]' is duplicated. at UsersAndOrganizationsAssignUsers#USER_TABLE_SCREEN_NAME
+'//a[contains(@id,'TabsBack')]' is duplicated. at UsersAndOrganizationsEditOrganization#BACK
+'//input[contains(@id,'name')]' is duplicated. at UsersAndOrganizationsEditOrganization#DETAILS_NAME_FIELD
+'//select[contains(@id,'type')]' is duplicated. at UsersAndOrganizationsEditOrganization#DETAILS_TYPE_SELECT
+'//select[contains(@id,'publicLayoutSetPrototypeId')]' is duplicated. at UsersAndOrganizationsEditOrganization#ORGANIZATION_SITE_PUBLIC_PAGES_SELECT
+'//select[contains(@id,'privateLayoutSetPrototypeId')]' is duplicated. at UsersAndOrganizationsEditOrganization#ORGANIZATION_SITE_PRIVATE_PAGES_SELECT
+'//input[contains(@id,'publicLayoutSetPrototypeLinkEnabled')]' is duplicated. at UsersAndOrganizationsEditOrganization#ENABLE_PROPAGATION_PUBLIC_PAGE_CHECKBOX
+'//input[contains(@id,'privateLayoutSetPrototypeLinkEnabled')]' is duplicated. at UsersAndOrganizationsEditOrganization#ENABLE_PROPAGATION_PRIVATE_PAGE_CHECKBOX
+'//input[@title='Add Tags']' is duplicated. at UsersAndOrganizationsEditOrganization#CATEGORIZATION_TAGS_FIELD
+'//button[@title='Add Tags']' is duplicated. at UsersAndOrganizationsEditOrganization#CATEGORIZATION_TAGS_ADD_BUTTON
+'//button[@title='Select Tags']' is duplicated. at UsersAndOrganizationsEditOrganization#CATEGORIZATION_TAGS_SELECT_BUTTON
+'//button[@title='Suggestions']' is duplicated. at UsersAndOrganizationsEditOrganization#CATEGORIZATION_TAGS_SUGGESTIONS_BUTTON
+'//a[contains(@id,'commentsLink')]' is duplicated. at UsersAndOrganizationsEditOrganization#MISCELLANEOUS_COMMENTS
+'//a[contains(@id,'reminderQueriesLink')]' is duplicated. at UsersAndOrganizationsEditOrganization#MISCELLANEOUS_REMINDER_QUERIES
+'//a[contains(@id,'customFieldsLink')]' is duplicated. at UsersAndOrganizationsEditOrganization#MISCELLANEOUS_CUSTOM_FIELDS
+'//textarea[contains(@id,'comments')]' is duplicated. at UsersAndOrganizationsEditOrganization#COMMENTS_FIELD
+'//input[contains(@id,'emailAddress')]' is duplicated. at UsersAndOrganizationsEditUser#DETAILS_EMAIL_ADDRESS_FIELD
+'//input[contains(@id,'firstName')]' is duplicated. at UsersAndOrganizationsEditUser#DETAILS_FIRST_NAME_FIELD
+'//input[contains(@id,'lastName')]' is duplicated. at UsersAndOrganizationsEditUser#DETAILS_LAST_NAME_FIELD
+'//input[contains(@id,'middleName')]' is duplicated. at UsersAndOrganizationsEditUser#DETAILS_MIDDLE_NAME_FIELD
+'//input[contains(@id,'screenName')]' is duplicated. at UsersAndOrganizationsEditUser#DETAILS_SCREEN_NAME_FIELD
+'//tr[contains(.,'${key_orgName}')]/td[1]' is duplicated. at UsersAndOrganizationsEditUser#ORGANIZATIONS_TABLE_NAME
+'//tr[contains(.,'${key_orgName}')]/td[2]' is duplicated. at UsersAndOrganizationsEditUser#ORGANIZATIONS_TABLE_TYPE
+'//tr[contains(.,'${key_orgName}')]/td[3]' is duplicated. at UsersAndOrganizationsEditUser#ORGANIZATIONS_TABLE_ROLES
+'//tr[contains(.,'${key_siteName}')]/td[1]' is duplicated. at UsersAndOrganizationsEditUser#SITES_TABLE_NAME
+'//tr[contains(.,'${key_siteName}')]/td[2]' is duplicated. at UsersAndOrganizationsEditUser#SITES_TABLE_ROLES
+'//tr[contains(.,'${key_siteName}')]/td[3]//a/span[contains(.,'Remove')]/span' is duplicated. at UsersAndOrganizationsEditUser#SITES_TABLE_REMOVE_LINK
+'//tr[contains(.,'${key_userGroupName}')]/td[1]' is duplicated. at UsersAndOrganizationsEditUser#USER_GROUPS_TABLE_NAME
+'//tr[contains(.,'${key_userGroupName}')]/td[2]' is duplicated. at UsersAndOrganizationsEditUser#USER_GROUPS_TABLE_REMOVE_LINK
+'//tr[contains(.,'${key_roleTitle}')]/td[1]' is duplicated. at UsersAndOrganizationsEditUser#ROLES_ORGANIZATION_ROLES_TABLE_TITLE
+'//tr[contains(.,'${key_roleTitle}')]/td[2]' is duplicated. at UsersAndOrganizationsEditUser#ROLES_ORGANIZATION_ROLES_TABLE_REMOVE_LINK
+'//tr[contains(.,'${key_roleTitle}')]/td[1]' is duplicated. at UsersAndOrganizationsEditUser#ROLES_REGULAR_ROLES_TABLE_TITLE
+'//tr[contains(.,'${key_roleTitle}')]/td[2]' is duplicated. at UsersAndOrganizationsEditUser#ROLES_REGULAR_ROLES_TABLE
+'//tr[contains(.,'${key_roleTitle}')]/td[2]//a' is duplicated. at UsersAndOrganizationsEditUser#ROLES_REGULAR_ROLES_TABLE_REMOVE_LINK
+'//select[contains(@id,'languageId')]' is duplicated. at UsersAndOrganizationsEditUser#DISPLAY_SETTINGS_LANGUAGE_SELECT
+'//select[contains(@id,'timeZoneId')]' is duplicated. at UsersAndOrganizationsEditUser#DISPLAY_SETTINGS_TIME_ZONE_SELECT
+'//select[contains(@id,'timeZoneId')]/option[@value='America/Los_Angeles']' is duplicated. at UsersAndOrganizationsEditUser#DISPLAY_SETTINGS_AMERICA_TIME_ZONE_SELECT
+'//h3[@class='header-title']/span' is duplicated. at UsersAndOrganizationsOrganization#ORGANIZATION_NAME
+'//button[contains(.,'Search')]' is duplicated. at UsersAndOrganizationsSelectOrganization#SEARCH_BUTTON
+'//tr[contains(.,'${key_orgName}')]/td[1]' is duplicated. at UsersAndOrganizationsSelectOrganization#ORGANIZATION_TABLE_NAME
+'//tr[contains(.,'${key_orgName}')]/td[2]' is duplicated. at UsersAndOrganizationsSelectOrganization#ORGANIZATION_TABLE_PARENT_ORGANIZATION
+'//tr[contains(.,'${key_orgName}')]/td[3]' is duplicated. at UsersAndOrganizationsSelectOrganization#ORGANIZATION_TABLE_TYPE
+'//li[contains(@data-title,'${key_webContentTitle}')]//*[@data-qa-id='rowItemContent']//a' is duplicated. at WC#ENTRY_LIST_TITLE
+'//tr[contains(.,'${key_folderName}')]/td[4]//button[contains(.,'Choose')]' is duplicated. at WC#FOLDER_TABLE_CHOOSE
+'//iframe[contains(@id,'configurationIframeDialog')]' is duplicated. at WCConfiguration#CONFIGURATION_IFRAME
+'//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Email From')]' is duplicated. at WCConfiguration#NAVIGATION_EMAIL_FROM
+'//select[contains(@id,'inputPermissionsViewRole')]' is duplicated. at WCEditFolder#PERMISSIONS_SELECT
+'//input[contains(@id,'restrictionTypeInherit')]' is duplicated. at WCEditFolder#WORKFLOW_PARENT_FOLDER_RADIO
+'//input[contains(@id,'restrictionTypeDefined')]' is duplicated. at WCEditFolder#WORKFLOW_SPECIFIC_RESTRICTIONS_RADIO
+'//input[contains(@id,'restrictionTypeWorkflow')]' is duplicated. at WCEditFolder#WORKFLOW_DEFAULT_WORKFLOW_RADIO
+'//select[contains(@id,'workflowDefinition-1')]' is duplicated. at WCEditFolder#WORKFLOW_DEFAULT_WORKFLOW_WORKFLOW_SELECT
+'//span[contains(.,'None')]' is duplicated. at WCEditWebContent#NONE_TEMPLATE
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at WCEditWebContent#BROWSE_IFRAME
+'//select[contains(@id,'inputPermissionsViewRole')]' is duplicated. at WCEditWebContent#PERMISSIONS_VIEWABLE_BY_SELECT
+'//li[contains(@class,'treeview-node')]//div/span[contains(.,'${key_pageName}')]' is duplicated. at WCSelectDisplayPage#PUBLIC_PAGES_SELECTION
+'//span[contains(@id,'displayPageNameInput')]' is duplicated. at WCSelectDisplayPage#PUBLIC_DISPLAY_PAGE_ITEM
+'//iframe[contains(@class,'dialog-iframe-node')]' is duplicated. at WCSelectFolder#SELECT_FOLDER_IFRAME
+'//button[@title='Move selected items from Current to Available.']' is duplicated. at WCDConfiguration#MOVE_CURRENT_TO_AVAILABLE_BUTTON
+'//button[@title='Move selected items from Available to Current.']' is duplicated. at WCDConfiguration#MOVE_AVAILABLE_TO_CURRENT_BUTTON
+'//tr[contains(.,'${key_webContentTitle}')]/td[3]' is duplicated. at WCDConfiguration#WEB_CONTENT_TABLE_USER_NAME
+'//tr[contains(.,'${key_webContentTitle}')]/td[5]' is duplicated. at WCDConfiguration#WEB_CONTENT_TABLE_SITE
+'//tr[contains(.,'${key_webContentTitle}')]/td//button' is duplicated. at WCDConfiguration#WEB_CONTENT_CHOOSE_BUTTON
+'//div[@class='sidenav-content']/h4' is duplicated. at Wiki#CHILD_PAGE_HEADER
+'//tr[1]/td[2]//a' is duplicated. at Wiki#NODE_TABLE_WIKI_GENERIC
+'//h3[@class='header-title']/span' is duplicated. at WikiEntry#HEADER_TITLE
+'xpath=(//tr/td[1]//a)[2]' is duplicated. at WikiTable#ALL_PAGES_PAGE_2
+'//tr[contains(.,'${key_wikiPageTitle}')]/td[3]//a' is duplicated. at WikiTable#ALL_PAGES_REVISION
+'//li[@id='_145_adminLinks']/a' is duplicated. at DragAndDrop#ADMIN
+'//div[contains(@class,'calendar-portlet-event')]/div[contains(.,'Calendar')]' is duplicated. at ElseIfLogger#FAKE_ELEMENT
+'//button[contains(.,'Save')]' is duplicated. at MobileDevice#SAVE_BUTTON
+'//input[@id='_178_name']' is duplicated. at MobileDevice#ADD_CLASSIFICATION_RULE_NAME_FIELD
