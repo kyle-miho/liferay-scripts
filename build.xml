@@ -10,14 +10,14 @@
 	</taskdef>
 
 	<!--Asks user which bundle to unzip-->
-	<input message="Which CE bundle do you want to work with?" validargs="71x-private,master,master-private,ce71,ce62,ce62ee,ce61,dxp7,ga5,ga1dxp,test" addproperty="bundle.type"/>
+	<input message="Which CE bundle do you want to work with?" validargs="71x-private,master,master-private,ce71,ce62,ce62ee,ce61,dxp7,ce7ga6,ga1dxp,test" addproperty="bundle.type"/>
 	<if>
-		<equals arg1="ga5" arg2="${bundle.type}"/>
+		<equals arg1="ce7ga6" arg2="${bundle.type}"/>
 		<then>
 			<!-- change current bundle name then unzip-->
 			<property name="tomcat8" value="yes" />
 			<property name="server.name" value="${server.foldername}"/>
-			<property name="current.bundle.name" value="${ga5ce7.name}"/>
+			<property name="current.bundle.name" value="${ga6ce7.name}"/>
 		</then>
 		<elseif>
 			<equals arg1="master" arg2="${bundle.type}"/>
