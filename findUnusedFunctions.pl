@@ -82,7 +82,6 @@ sub openFile {
     while ($fileContent =~ m/(?<=<definition default=\")(.*?)(?=\"(.*?)>)/g) {
         $defaultDefinition .= $&;
     }
-    print($defaultDefinition);
 
     #GET FUNCTIONS
     while ($fileContent =~ m/(?<=<command name=\")(.*?)(?=\"(.*?)>)/g) {
