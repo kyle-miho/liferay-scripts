@@ -7,6 +7,7 @@ $/ = "";
 print STDOUT ("Starting...");
 #List of macros
 my $testcaseList = "";
+my $totalTestcases = 0;
 my @testcaseName;
 my @testcaseCount;
 
@@ -30,6 +31,7 @@ foreach my $i (0 .. $#testcaseCount-1) {
     }
 }
 #PRINT OUT
+print $fileTemp "Total Testcases: $totalTestcases\n";
 foreach my $i (0 .. $#testcaseName) {
     print $fileTemp "$testcaseName[$i]: $testcaseCount[$i]\n";
 }
@@ -62,6 +64,7 @@ sub openFile {
      
     while ($fileContent =~ m/(?<=<command name=\")(.*?)(?=\"(.*?)>)/g) {
         $tempCount++;
+        $totalTestcases++;
     }
     #$testcaseList .= $_ . ": " . $tempCount . "\n";
     #test below

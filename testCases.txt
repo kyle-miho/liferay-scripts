@@ -1,3 +1,4 @@
+Total Testcases: 647
 CPWebcontent: 40
 CPCategories: 39
 WebcontentUsecase: 35
