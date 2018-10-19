@@ -179,13 +179,9 @@ sub removePath {
 
     if ($replacements > 0) {
         #git add file, then git commit
-        my $temp = "git add " . $_ . ".path";
-        system("$temp");
-        my $temp2 = "git commit -m" . "\"LRQA-42406 Remove unused paths in " . $_ . ".path\"";
-        system("$temp2");
-    } else {
-        my $temp = "git checkout -- " . $_ . ".path";
-        system("$temp");
-    }
-    
+        #my $temp1 = "git add " . $_ . ".path";
+        #my $temp2 = "git commit -m" . "\"LRQA-42406 Remove unused paths in " . $_ . ".path\"";
+        #system("$temp1");
+        #system("$temp2");
+    }     
 }

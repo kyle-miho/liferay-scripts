@@ -19,6 +19,9 @@ my $portal_home = "L:/public/master-portal";
 my $unusedPathsFileName = "unusedPaths.txt";
 my $usedPathsFileName = "usedPaths.txt";
 
+open(my $test, '>', 'test.txt') or die;
+close($test);
+
 #GET PATHS USED into PATHSLIST, PATHS CALLED into pathCalls
 use File::Find;
 find(\&openFile,"$portal_home/portal-web/test/functional/com/liferay/portalweb/paths");
@@ -109,8 +112,17 @@ sub getPathCallsList {
 
     #GET PATHS
     while ($fileContent =~ m/(?<=locator1=\")(.*?)(?=\")/g) {
-        my $pathName = join '#', $_, $&;
-        $pathCalls .= $pathName . "\n";
+        if (index($&,'#') != -1) {
+            my $pathName = $&;
+            $pathCalls .= $pathName . "\n";
+
+            if (index($&,'$') != -1) {
+                open(my $tempFile, '>>', 'test.txt') or die;
+                print $tempFile ($& . "\n");
+                close($tempFile);
+            }
+        }
+        
     }
     close $currentFile;
 }
@@ -118,7 +130,25 @@ sub getPathCallsList {
 ###
 #DEF: Given a Path, return how many times it is used
 ###
+
 sub countPathUsages {
-    my ($pathName, @pathCalls) = @_;
-    return grep(/$pathName/,@pathCalls);
+    my ($pathReal, @pathCalls) = @_;
+    my ($filenameReal,$pathnameReal) = split(/#/,$pathReal,2);
+    my $tempCount = 0;
+    #check if a path is used
+    foreach my $tempPathCall (@pathCalls) {
+        #split filename and path, do hard compare on filename, hard compare on path if there is no variable
+        my ($filenameCall,$pathnameCall) = split(/#/,$tempPathCall,2);
+        if ("$filenameReal" eq "$filenameCall") {
+            #check if variable, then do substring compare, else another hard compare
+            if (index($pathnameCall,'$') != -1) {
+                $tempCount++;
+            } else {
+                if ("$pathnameReal" eq "$pathnameCall") {
+                    $tempCount++;
+                }
+            }
+        }
+    }
+    return $tempCount;
 }
