@@ -10,7 +10,7 @@
 	</taskdef>
 
 	<!--Asks user which bundle to unzip-->
-	<input message="Which CE bundle do you want to work with?" validargs="71x-private,master,master-private,ce71,ce62,ce62ee,ce61,dxp7,dxp71,ce7ga6,ga1dxp,test" addproperty="bundle.type"/>
+	<input message="Which CE bundle do you want to work with?" validargs="71x-private,master,master-private,ce71,ce71ga2,ce62,ce62ee,ce61,dxp7,dxp71,ce7ga6,ga1dxp,test" addproperty="bundle.type"/>
 	<if>
 		<equals arg1="ce7ga6" arg2="${bundle.type}"/>
 		<then>
@@ -50,8 +50,6 @@
 			<then>
 				<property name="current.bundle.name" value="${dxp71.name}"/>
 				<property name="license.required" value="True"/>
-				<property name="tomcat96" value="yes" />
-				<property name="server.name" value="${server.foldernamesix}"/>
 			</then>
 		</elseif>
 		<elseif>
@@ -98,6 +96,12 @@
 				<property name="server.name" value="${server.foldername}"/>
 				<property name="tomcat8" value="yes" />
 				<property name="license.required" value="True"/>
+			</then>
+		</elseif>
+		<elseif>
+			<equals arg1="ce71ga2" arg2="${bundle.type}" />
+			<then>
+				<property name="current.bundle.name" value="${ce71ga2.name}" />
 			</then>
 		</elseif>
 	</if>

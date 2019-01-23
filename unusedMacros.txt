@@ -1,5 +1,4 @@
 ContentConfiguration#setTitle - Usages: 0
-ContentPages#gotoEdit - Usages: 0
 DMNavigator#gotoFolderViaBreadcrumb - Usages: 0
 Drools#viewContentPG - Usages: 0
 Drools#viewDefaultPG - Usages: 0

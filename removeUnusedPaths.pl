@@ -17,7 +17,7 @@ my $unusedPathCount = 0;
 my $start_time = time();
 
 #YOU CAN DEFINE YOUR THINGS HERE 
-my $portal_home = "L:/public/master-portal";
+my $portal_home = "L:/private/7.1.x-portal";
 my $unusedPathsFileName = "unusedPaths.txt";
 my $usedPathsFileName = "usedPaths.txt";
 
@@ -26,13 +26,12 @@ use File::Find;
 find(\&openFile,"$portal_home/portal-web/test/functional/com/liferay/portalweb/paths");
 find(\&getPathCallsList,"$portal_home/portal-web/test/functional/com/liferay/portalweb/macros");
 find(\&getPathCallsList,"$portal_home/portal-web/test/functional/com/liferay/portalweb/tests");
-
+#execute only for commerce
+find(\&getPathCallsList,"L:/private/7.1.x-commerce/commerce-product-test/src/testFunctional/macros");
+find(\&getPathCallsList,"L:/private/7.1.x-commerce/commerce-product-test/src/testFunctional/tests");
 #split pathList and call countPathUsage
 my @splitPathList = split(' ', $pathList);
 my @splitPathCalls = split(' ', $pathCalls);
-
-#open(my $fileTemp, '>', $unusedPathsFileName) or die;
-#open(my $fileTemp2, '>', $usedPathsFileName) or die;
 
 foreach my $path (@splitPathList) {
     my $temp = countPathUsages($path,@splitPathCalls);
@@ -49,14 +48,9 @@ foreach my $path (@splitPathList) {
     
     select()->flush();
 }
-#CLOSE FILES
-#close($fileTemp);
-#close($fileTemp2);
 
 #remove paths
 find(\&removePath,"$portal_home/portal-web/test/functional/com/liferay/portalweb/paths");
-
-
 
 #RESULTS POST
 print STDOUT ("\nDone!\n");
@@ -114,22 +108,55 @@ sub getPathCallsList {
     #remove extension, we don't need anymore
     $_ =~ s{\.[^.]+$}{};
 
-    #GET PATHS
-    while ($fileContent =~ m/(?<=locator1=\")(.*?)(?=\")/g) {
-        my $pathName = join '#', $_, $&;
-        $pathCalls .= $pathName . "\n";
+    #GET PATHS NORMAL
+    while ($fileContent =~ m/(?<=locator[0-9]=\")(.*?)(?=\")/g) {
+        if (index($&,'#') != -1) {
+            my $pathName = $&;
+            $pathCalls .= $pathName . "\n";
+        }
     }
+
+    #GET PATHS CALLED BY selenium#function
+    while ($fileContent =~ m/selenium#.*?\(\'\K(.*?)(?=\')/g) {
+        if (index($&,'#') != -1) {
+            my $pathName = $&;
+            $pathCalls .= $pathName . "\n";
+        }
+        
+    }
+
     close $currentFile;
 }
 
 ###
 #DEF: Given a Path, return how many times it is used
 ###
-sub countPathUsages {
-    my ($pathName, @pathCalls) = @_;
-    return grep(/$pathName/,@pathCalls);
-}
 
+sub countPathUsages {
+    my ($pathReal, @pathCalls) = @_;
+    my ($filenameReal,$pathnameReal) = split(/#/,$pathReal,2);
+    my $tempCount = 0;
+    #check if a path is used
+    foreach my $tempPathCall (@pathCalls) {
+        #split filename and path, do hard compare on filename, hard compare on path if there is no variable
+        my ($filenameCall,$pathnameCall) = split(/#/,$tempPathCall,2);
+        if ("$filenameReal" eq "$filenameCall") {
+            #check if variable, then do substring compare, else another hard compare
+            if (index($pathnameCall,'$') != -1) {
+                $pathnameCall =~ s/\$\{.*?\}/\.\*\?/g;
+                if ($pathnameReal =~ /$pathnameCall/) {
+                $tempCount++;
+                }
+
+            } else {
+                if ("$pathnameReal" eq "$pathnameCall") {
+                    $tempCount++;
+                }
+            }
+        }
+    }
+    return $tempCount;
+}
 
 ###
 #DEF: Given Filename#Path, Open Filename, remove Path, then close Filename
@@ -158,8 +185,6 @@ sub removePath {
     print("Working on file " . $_ . "\n");
 
     #split Filename#Path into a filename and path variable
-    
-
     my @splitUnusedPaths = split(' ', "$unusedPaths");
     my $replacements = 0;
 
@@ -172,16 +197,7 @@ sub removePath {
             $fileContent =~ s/$find//;
             $replacements++;
         }
-    #select()->flush();
     }
     print $currentFile $fileContent;
     close $currentFile;
-
-    if ($replacements > 0) {
-        #git add file, then git commit
-        #my $temp1 = "git add " . $_ . ".path";
-        #my $temp2 = "git commit -m" . "\"LRQA-42406 Remove unused paths in " . $_ . ".path\"";
-        #system("$temp1");
-        #system("$temp2");
-    }     
 }

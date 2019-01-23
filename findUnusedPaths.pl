@@ -19,9 +19,6 @@ my $portal_home = "L:/public/master-portal";
 my $unusedPathsFileName = "unusedPaths.txt";
 my $usedPathsFileName = "usedPaths.txt";
 
-open(my $test, '>', 'test.txt') or die;
-close($test);
-
 #GET PATHS USED into PATHSLIST, PATHS CALLED into pathCalls
 use File::Find;
 find(\&openFile,"$portal_home/portal-web/test/functional/com/liferay/portalweb/paths");
@@ -110,8 +107,8 @@ sub getPathCallsList {
     #remove extension, we don't need anymore
     $_ =~ s{\.[^.]+$}{};
 
-    #GET PATHS
-    while ($fileContent =~ m/(?<=locator1=\")(.*?)(?=\")/g) {
+    #GET PATHS NORMAL
+    while ($fileContent =~ m/(?<=locator[0-9]=\")(.*?)(?=\")/g) {
         if (index($&,'#') != -1) {
             my $pathName = $&;
             $pathCalls .= $pathName . "\n";
@@ -124,6 +121,23 @@ sub getPathCallsList {
         }
         
     }
+
+    #GET PATHS CALLED BY selenium#function
+    while ($fileContent =~ m/selenium#.*?\(\'\K(.*?)(?=\')/g) {
+        if (index($&,'#') != -1) {
+            my $pathName = $&;
+            $pathCalls .= $pathName . "\n";
+
+            if (index($&,'$') != -1) {
+                open(my $tempFile, '>>', 'test.txt') or die;
+                print ("FOUND SELENIUM: " . $&);
+                print $tempFile ($& . "\n");
+                close($tempFile);
+            }
+        }
+        
+    }
+
     close $currentFile;
 }
 
@@ -142,7 +156,11 @@ sub countPathUsages {
         if ("$filenameReal" eq "$filenameCall") {
             #check if variable, then do substring compare, else another hard compare
             if (index($pathnameCall,'$') != -1) {
+                $pathnameCall =~ s/\$\{.*?\}/\.\*\?/g;
+                if ($pathnameReal =~ /$pathnameCall/) {
                 $tempCount++;
+                }
+
             } else {
                 if ("$pathnameReal" eq "$pathnameCall") {
                     $tempCount++;
