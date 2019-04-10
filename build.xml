@@ -276,39 +276,23 @@
 		</if>
 	</target>
 
-	<target name="delete-lpkg">
-	<!--
-		<echo>Deleting LCS lpkg</echo>
-		<if>
-			<available file="${bundle.homefolder}/${current.bundle.name}/osgi/marketplace/Liferay Connected Services Client.lpkg" />
-			<then>
-				<echo>Liferay Connected Services Client.lpkg Found! Deleting</echo>
-				<delete file="${bundle.homefolder}/${current.bundle.name}/osgi/marketplace/Liferay Connected Services Client.lpkg" />
-			</then>
-			<else>
-				<echo>Liferay Connected Services Client.lpkg not found!</echo>
-			</else>
-		</if>
-	-->
-	</target>
-
 	<target name="license">
 		<echo>Checking if License is needed</echo>
 		<if>
-			<available file="license/7.0License.xml"/>
+			<available file="${license.location}/7.0License.xml"/>
 			<then>
 				<echo>License found!</echo>
 				<if>
 					<equals arg1="${license.required}" arg2="True"/>
 					<then>
 						<echo>Deploy folder found! copying to ${specific.bundle.home}/deploy/</echo>
-						<copy file="license/7.0License.xml" todir="${specific.bundle.home}/deploy/"></copy>
+						<copy file="${license.location}/7.0License.xml" todir="${specific.bundle.home}/deploy/"></copy>
 					</then>
 				</if>
 			</then>
 			<else>
 				<echo>License not found!</echo>
-				<fail message="Missing License at license/7.0License.xml"/>
+				<fail message="Missing License at ${license.location}/7.0License.xml"/>
 			</else>
 		</if>
 	</target>
