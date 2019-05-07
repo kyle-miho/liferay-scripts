@@ -14,7 +14,7 @@
 
 	<!--Asks user which bundle to unzip-->
 	<target name="setup-properties">
-		<input message="Which CE bundle do you want to work with?" validargs="master,master-private,ce71ga2,dxp71ga1,ce70ga6,dxp70ga1,ce62ga6,dxp62sp20,test" addproperty="bundle.type"/>
+		<input message="Which CE bundle do you want to work with?" validargs="master,master-private,ce72b3,dxp72rc2,ce71ga2,dxp71ga1,ce70ga6,dxp70ga1,ce62ga6,dxp62sp20,test" addproperty="bundle.type"/>
 		<if>
 			<equals arg1="master" arg2="${bundle.type}"/>
 			<then>
@@ -25,6 +25,19 @@
 				<equals arg1="master-private" arg2="${bundle.type}"/>
 				<then>
 					<property name="current.bundle.name" value="${masterprivate.name}"/>
+					<property name="license.required" value="True"/>
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="ce72b3" arg2="${bundle.type}" />
+				<then>
+					<property name="current.bundle.name" value="${ce72b3.name}" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="dxp72rc2" arg2="${bundle.type}" />
+				<then>
+					<property name="current.bundle.name" value="${dxp72rc2.name}" />
 					<property name="license.required" value="True"/>
 				</then>
 			</elseif>
