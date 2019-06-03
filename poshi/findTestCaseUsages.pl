@@ -13,6 +13,9 @@ if ($argumentCount != 1) {
     exit;
 }
 
+ #YOU CAN DEFINE YOUR THINGS HERE   
+my $portal_home = "L:/public/master-portal";    
+
 #Globals
 my $macroFound = 0;
 
@@ -24,9 +27,6 @@ my @testCaseList = ();
  #START TIME	
 my $start_time = time();	
 
- #YOU CAN DEFINE YOUR THINGS HERE 	
-my $portal_home = "L:/public/master-portal";	
-
  #GET MACROS USED into MACROLIST, MACROS CALLED into macroCalls	
 use File::Find;	
 
@@ -37,6 +37,7 @@ if ($macroFound == 1) {
     print "We found the macro\n";
 } else {
     print "We did not find the macro\n";
+    exit;
 }
 
 #We have to go call this to get the initial list of macro calls, and then call it until the macrolist is empty
@@ -45,24 +46,24 @@ do {
     find(\&getMacroListTest,"$portal_home/portal-web/test/functional/com/liferay/portalweb/tests");
     find(\&getMacroListMacros,"$portal_home/portal-web/test/functional/com/liferay/portalweb/macros");
 
-    print("-------------------\n");
+    #print("-------------------\n");
 
-    print ("testCaseList:\n");
+    #print ("testCaseList:\n");
     foreach(@testCaseList) {
-        print "$_\n";
+        #print "$_\n";
     }
 
-    print ("macroList:\n");
+    #print ("macroList:\n");
     foreach(@macroList) {
-        print "$_\n";
+        #print "$_\n";
     }
 
-    print ("macroListTemp:\n");
+    #print ("macroListTemp:\n");
     foreach(@macroListTemp) {
-        print "$_\n";
+        #print "$_\n";
     }
 
-    print("-------------------\n\n");
+    #print("-------------------\n\n");
 
     @macroList = @macroListTemp;
     @macroListTemp = ();
