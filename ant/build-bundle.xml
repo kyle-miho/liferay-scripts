@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project name="Liferay-Automation-Bundle">
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<macrodef name="load">
+		<attribute name="backUpExtension" />
+		<attribute name="homeDir" />
+
+		<sequential>		
+			<if>
+				<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
+				<then>
+					<echo>Found saved bundle!</echo>
+				</then>
+				<else>
+					<fail>No save exists!</fail>
+				</else>
+			</if>
+
+			<echo>Clean current bundle</echo>
+			<if>
+				<available file="@{homeDir}" type="dir"/>
+				<then>
+					<echo>Found! Deleting current bundle</echo>
+					<delete dir="@{homeDir}"/>
+				</then>
+				<else>
+					<echo>Current bundle already clean!</echo>
+				</else>
+			</if>
+
+			<copy todir="@{homeDir}">
+				<fileset dir="@{homeDir}-@{backUpExtension}" />
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="save">
+		<attribute name="backUpExtension" />
+		<attribute name="homeDir" />
+
+		<sequential>
+			<if>
+				<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
+				<then>
+					<echo>Found! Deleting old saved bundle</echo>
+					<delete dir="@{homeDir}-@{backUpExtension}"/>
+				</then>
+				<else>
+					<echo>Old bundle already clean!</echo>
+				</else>
+			</if>
+
+			<if>
+				<not>
+					<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
+				</not>
+				<then>
+					<echo>Copying over current bundle</echo>
+					<copy todir="@{homeDir}-@{backUpExtension}">
+						<fileset dir="@{homeDir}" />
+					</copy>
+				</then>
+				<else>
+					<fail>Destination not clean!</fail>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+</project>

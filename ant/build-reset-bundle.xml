@@ -2,7 +2,7 @@
 <!-- 
 	Main commands: reset-bundle(default), save, load
 -->
-<project name="Liferay-Automation" default="reset-bundle">
+<project name="Liferay-Automation-Properties">
 	<!--File includes-->
 	<property file="app.properties"/>
 
@@ -126,74 +126,6 @@
 		</if>
 	</target>
 
-	<!--Sets up remote staging based on master bundle -->
-	<target name="setup-remote-staging" depends="setup-properties">
-		<save backUpExtension="remote" homeDir="${specific.bundle.home}" />
-
-		<!-- update server.xml -->
-
-		<!-- update portal-ext properties-->
-
-		<!-- update staging config -->
-	</target>
-
-	<!--Tomcat dependencies required after bundle compilation-->
-	<target name="reset-bundle" depends="setup-properties">
-		<if>
-			<equals arg1="${database.type}" arg2="maria" />
-			<then>
-				<reset-db-maria databaseName="${sql.databaseName}" exePath="${maria.prog}"/>
-				<create-portal-ext-prop-mariadb serverDir="${specific.bundle.home}/${server.name}" propertyDir="${property.location}" />
-			</then>
-			<else>
-				<reset-db databaseName="${sql.databaseName}" exePath="${sql.prog}" />
-				<create-portal-ext-prop serverDir="${specific.bundle.home}/${server.name}" propertyDir="${property.location}" />
-			</else>
-		</if>
-		<reset-data-deploy homeDir="${specific.bundle.home}" />
-		<replace-mysql-jar jarPath="${sql.jarpath}" serverDir="${specific.bundle.home}/${server.name}" />
-		<remove-chat-jar serverDir="${specific.bundle.home}/${server.name}" />
-		<license homeDir="${specific.bundle.home}" licenseLocation="${license.location}" licenseRequired ="${license.required}" />
-		<setup-setenv appServerMemory="${appserver.memory}" serverDir="${specific.bundle.home}/${server.name}" />
-	</target>
-
-
-	<target name="load">
-		<echo>Checking if saved bundle exists</echo>
-		<if>
-			<available file="${bundle.homefolder}/${master.backup.name}" type="dir"/>
-			<then>
-				<echo>Found saved bundle!</echo>
-			</then>
-			<else>
-				<fail>No save exists!</fail>
-			</else>
-		</if>
-
-		<echo>Clean current bundle</echo>
-		<if>
-			<available file="${bundle.homefolder}/${master.name}" type="dir"/>
-			<then>
-				<echo>Found! Deleting current bundle</echo>
-				<delete dir="${bundle.homefolder}/${master.name}"/>
-			</then>
-			<else>
-				<echo>Current bundle already clean!</echo>
-			</else>
-		</if>
-
-		<echo>Copying over current bundle</echo>
-		<copy todir="${bundle.homefolder}/${master.name}">
-			<fileset dir="${bundle.homefolder}/${master.backup.name}" />
-		</copy>
-
-		<echo>Bundle loaded!</echo>
-	</target>
-
-	<target name ="save" depends="setup-properties">
-		<save backUpExtension="backup" homeDir="${specific.bundle.home}" />
-	</target>
-
 	<!-- Deletes and creates a fresh MYSQL database -->
 	<macrodef name="reset-db">
 		<attribute name="exePath" />
@@ -254,7 +186,7 @@
 		</sequential>
 	</macrodef>
 
-		<!-- Searches for and updates portal-ext.properties-->
+	<!-- Searches for and updates portal-ext.properties-->
 	<macrodef name="create-portal-ext-prop-mariadb">
 		<attribute name="propertyDir" />
 		<attribute name="serverDir" />
@@ -386,40 +318,6 @@
 				<else>
 					<echo>License not found!</echo>
 					<fail message="Missing License at @{licenseLocation}/7.0License.xml"/>
-				</else>
-			</if>
-		</sequential>
-	</macrodef>
-
-	<!-- note save/load only works with master -->
-	<macrodef name="save">
-		<attribute name="backUpExtension" />
-		<attribute name="homeDir" />
-
-		<sequential>
-			<if>
-				<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
-				<then>
-					<echo>Found! Deleting old saved bundle</echo>
-					<delete dir="@{homeDir}-@{backUpExtension}"/>
-				</then>
-				<else>
-					<echo>Old bundle already clean!</echo>
-				</else>
-			</if>
-
-			<if>
-				<not>
-					<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
-				</not>
-				<then>
-					<echo>Copying over current bundle</echo>
-					<copy todir="@{homeDir}-@{backUpExtension}">
-						<fileset dir="@{homeDir}" />
-					</copy>
-				</then>
-				<else>
-					<fail>Destination not clean!</fail>
 				</else>
 			</if>
 		</sequential>
