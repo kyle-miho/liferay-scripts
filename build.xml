@@ -126,6 +126,17 @@
 		</if>
 	</target>
 
+	<!--Sets up remote staging based on master bundle -->
+	<target name="setup-remote-staging" depends="setup-properties">
+		<save backUpName="${specific.bundle.home}-remote" homeDir="${specific.bundle.home}" />
+
+		<!-- update server.xml -->
+
+		<!-- update portal-ext properties-->
+
+		<!-- update staging config -->
+	</target>
+
 	<!--Tomcat dependencies required after bundle compilation-->
 	<target name="reset-bundle" depends="setup-properties">
 		<if>
@@ -144,6 +155,43 @@
 		<remove-chat-jar serverDir="${specific.bundle.home}/${server.name}" />
 		<license homeDir="${specific.bundle.home}" licenseLocation="${license.location}" licenseRequired ="${license.required}" />
 		<setup-setenv appServerMemory="${appserver.memory}" serverDir="${specific.bundle.home}/${server.name}" />
+	</target>
+
+
+	<target name="load">
+		<echo>Checking if saved bundle exists</echo>
+		<if>
+			<available file="${bundle.homefolder}/${master.backup.name}" type="dir"/>
+			<then>
+				<echo>Found saved bundle!</echo>
+			</then>
+			<else>
+				<fail>No save exists!</fail>
+			</else>
+		</if>
+
+		<echo>Clean current bundle</echo>
+		<if>
+			<available file="${bundle.homefolder}/${master.name}" type="dir"/>
+			<then>
+				<echo>Found! Deleting current bundle</echo>
+				<delete dir="${bundle.homefolder}/${master.name}"/>
+			</then>
+			<else>
+				<echo>Current bundle already clean!</echo>
+			</else>
+		</if>
+
+		<echo>Copying over current bundle</echo>
+		<copy todir="${bundle.homefolder}/${master.name}">
+			<fileset dir="${bundle.homefolder}/${master.backup.name}" />
+		</copy>
+
+		<echo>Bundle loaded!</echo>
+	</target>
+
+	<target name ="save" depends="setup-properties">
+		<save backUpName="${master.backup.name}" homeDir="${specific.bundle.home}" />
 	</target>
 
 	<!-- Deletes and creates a fresh MYSQL database -->
@@ -343,6 +391,40 @@
 		</sequential>
 	</macrodef>
 
+	<!-- note save/load only works with master -->
+	<macrodef name="save">
+		<attribute name="backUpName" />
+		<attribute name="homeDir" />
+
+		<sequential>
+			<if>
+				<available file="@{backUpName}" type="dir"/>
+				<then>
+					<echo>Found! Deleting old saved bundle</echo>
+					<delete dir="@{backUpName}"/>
+				</then>
+				<else>
+					<echo>Old bundle already clean!</echo>
+				</else>
+			</if>
+
+			<if>
+				<not>
+					<available file="@{backUpName}" type="dir"/>
+				</not>
+				<then>
+					<echo>Copying over current bundle</echo>
+					<copy todir="@{backUpName}">
+						<fileset dir="@{homeDir}" />
+					</copy>
+				</then>
+				<else>
+					<fail>Destination not clean!</fail>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="setup-setenv">
 		<attribute name="appServerMemory" />
 		<attribute name="serverDir" />
@@ -355,68 +437,4 @@
 			match="-Xmx[0-9]+m" replace="-Xmx@{appServerMemory}" byline="false" />
 		</sequential>
 	</macrodef>
-
-	<!-- note save/load only works with master -->
-	<target name="save">
-		<echo>Deleting old saved bundle</echo>
-		<if>
-			<available file="${bundle.homefolder}/${master.backup.name}" type="dir"/>
-			<then>
-				<echo>Found! Deleting old saved bundle</echo>
-				<delete dir="${bundle.homefolder}/${master.backup.name}"/>
-			</then>
-			<else>
-				<echo>Old bundle already clean!</echo>
-			</else>
-		</if>
-
-		<echo>Checking if destination clean</echo>
-		<if>
-			<not>
-				<available file="${bundle.homefolder}/${master.backup.name}" type="dir"/>
-			</not>
-			<then>
-				<echo>Copying over current bundle</echo>
-				<copy todir="${bundle.homefolder}/${master.backup.name}">
-					<fileset dir="${bundle.homefolder}/${master.name}" />
-				</copy>
-			</then>
-			<else>
-				<fail>Destination not clean!</fail>
-			</else>
-		</if>
-		<echo>Bundle saved!</echo>
-	</target>
-
-	<target name="load">
-		<echo>Checking if saved bundle exists</echo>
-		<if>
-			<available file="${bundle.homefolder}/${master.backup.name}" type="dir"/>
-			<then>
-				<echo>Found saved bundle!</echo>
-			</then>
-			<else>
-				<fail>No save exists!</fail>
-			</else>
-		</if>
-
-		<echo>Clean current bundle</echo>
-		<if>
-			<available file="${bundle.homefolder}/${master.name}" type="dir"/>
-			<then>
-				<echo>Found! Deleting current bundle</echo>
-				<delete dir="${bundle.homefolder}/${master.name}"/>
-			</then>
-			<else>
-				<echo>Current bundle already clean!</echo>
-			</else>
-		</if>
-
-		<echo>Copying over current bundle</echo>
-		<copy todir="${bundle.homefolder}/${master.name}">
-			<fileset dir="${bundle.homefolder}/${master.backup.name}" />
-		</copy>
-
-		<echo>Bundle loaded!</echo>
-	</target>
 </project>
