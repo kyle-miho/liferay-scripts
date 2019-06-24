@@ -128,7 +128,7 @@
 
 	<!--Sets up remote staging based on master bundle -->
 	<target name="setup-remote-staging" depends="setup-properties">
-		<save backUpName="${specific.bundle.home}-remote" homeDir="${specific.bundle.home}" />
+		<save backUpExtension="remote" homeDir="${specific.bundle.home}" />
 
 		<!-- update server.xml -->
 
@@ -191,7 +191,7 @@
 	</target>
 
 	<target name ="save" depends="setup-properties">
-		<save backUpName="${master.backup.name}" homeDir="${specific.bundle.home}" />
+		<save backUpExtension="backup" homeDir="${specific.bundle.home}" />
 	</target>
 
 	<!-- Deletes and creates a fresh MYSQL database -->
@@ -393,15 +393,15 @@
 
 	<!-- note save/load only works with master -->
 	<macrodef name="save">
-		<attribute name="backUpName" />
+		<attribute name="backUpExtension" />
 		<attribute name="homeDir" />
 
 		<sequential>
 			<if>
-				<available file="@{backUpName}" type="dir"/>
+				<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
 				<then>
 					<echo>Found! Deleting old saved bundle</echo>
-					<delete dir="@{backUpName}"/>
+					<delete dir="@{homeDir}-@{backUpExtension}"/>
 				</then>
 				<else>
 					<echo>Old bundle already clean!</echo>
@@ -410,11 +410,11 @@
 
 			<if>
 				<not>
-					<available file="@{backUpName}" type="dir"/>
+					<available file="@{homeDir}-@{backUpExtension}" type="dir"/>
 				</not>
 				<then>
 					<echo>Copying over current bundle</echo>
-					<copy todir="@{backUpName}">
+					<copy todir="@{homeDir}-@{backUpExtension}">
 						<fileset dir="@{homeDir}" />
 					</copy>
 				</then>
