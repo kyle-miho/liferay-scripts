@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project name="Liferay-Automation-Remote-Staging">
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<macrodef name="update-server-xml">
+		<attribute name="portPrefix"/>
+		<attribute name="serverDir"/>
+		
+		<sequential>
+			<echo>Setting port prefix of ports in server.xml</echo>
+			<replaceregexp file="@{serverDir}/conf/server.xml" flags="g" match="&quot;8([0-9]*)&quot;" replace="&quot;@{portPrefix}\1&quot;"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="update-jmx-port">
+		<attribute name="port"/>
+		<attribute name="serverDir"/>
+
+		<sequential>
+			<echo>Setting jmx port in setenv.bat</echo>
+			<replaceregexp file="@{serverDir}/bin/setenv.bat" match="(-Dcom.sun.management.jmxremote.port=)[0-9]+" replace="\1@{port}"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="update-jpda-port">
+		<attribute name="port"/>
+		<attribute name="serverDir"/>
+
+		<sequential>
+			<echo>Setting jpda port in catalina.bat</echo>
+			<replaceregexp file="@{serverDir}/bin/catalina.bat" match="(set JPDA_ADDRESS=localhost:)[0-9]+" replace="\1@{port}"/>
+		</sequential>
+	</macrodef>
+</project>
