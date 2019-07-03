@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<project name="Docker">
+	<!--File includes-->
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<macrodef name="remove-container">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="rm"/>
+				<arg value="-f"/>
+				<arg value="@{containerName}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="start-database-container">
+		<attribute name="containerName" />
+		<attribute name="databaseName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<if>
+				<equals arg1="@{databaseName}" arg2="mysql" />
+				<then>
+					<_start-mysql containerName="@{containerName}" dockerPath="@{dockerPath}" />
+				</then>
+				<elseif>
+					<equals arg1="@{databaseName}" arg2="maria" />
+					<then>
+						<_start-maria containerName="@{containerName}" dockerPath="@{dockerPath}" />
+					</then>
+				</elseif>
+				<elseif>
+					<equals arg1="@{databaseName}" arg2="postgres" />
+					<then>
+						<_start-postgres containerName="@{containerName}" dockerPath="@{dockerPath}" />
+					</then>
+				</elseif>
+			</if>
+			
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-maria">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="3307:3306" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				<arg value="-e" />
+				<arg value="MYSQL_ALLOW_EMPTY_PASSWORD=yes" />
+
+				<arg value="-e" />
+				<arg value="MYSQL_DATABASE=lportal" />
+
+				<arg value="-d" />
+				<arg value="mariadb:10.2" />
+
+				<arg value="--character-set-server=utf8" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-mysql">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="3306:3306" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				<arg value="-e" />
+				<arg value="MYSQL_ALLOW_EMPTY_PASSWORD=yes" />
+
+				<arg value="-e" />
+				<arg value="MYSQL_DATABASE=lportal" />
+
+				<arg value="-d" />
+				<arg value="mysql:5.7" />
+
+				<arg value="--character-set-server=utf8" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-postgres">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="5432:5432" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				<arg value="-e" />
+				<arg value="POSTGRES_DB=lportal" />
+
+				<arg value="-d" />
+				<arg value="postgres:10.6" />
+			</exec>
+		</sequential>
+	</macrodef>
+</project>

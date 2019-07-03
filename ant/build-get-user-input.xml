@@ -101,7 +101,7 @@
 
 	<macrodef name="set-database-properties">
 		<sequential>
-			<input message="Which Database do you want to reset?" validargs="mysql,maria" addproperty="database.name" />
+			<input message="Which Database do you want to reset?" validargs="mysql,maria,postgres" addproperty="database.name" />
 		</sequential>
 	</macrodef>
 

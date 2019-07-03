@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!-- 
+	Main commands: reset-bundle(default), save, load
+-->
+<project name="Liferay-Automation-Portal">
+	<!--File includes-->
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<macrodef name="append-file">
+		<attribute name="file" />
+		<attribute name="destinationFile" />
+
+		<sequential>
+			<concat destfile="@{destinationFile}" append="true">
+				<fileset file="@{file}" />
+			</concat>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="copy-file">
+		<attribute name="fileDir" />
+		<attribute name="fileName" />
+		<attribute name="destinationDir" />
+
+		<sequential>
+			<if>
+				<available file="@{fileDir}/@{fileName}" />
+				<then>
+					<if>
+						<available file="@{destinationDir}/@{fileName}" />
+						<then>
+							<delete file="@{destinationDir}/@{fileName}" />
+						</then>
+					</if>
+					<copy file="@{fileDir}/@{fileName}" todir="@{destinationDir}" />
+				</then>
+				<else>
+					<fail message="Missing @{fileName} at @{fileDir}" />
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<!-- Searches for and updates portal-ext.properties-->
+	<macrodef name="create-portal-ext-prop">
+		<attribute name="propertyDir" />
+		<attribute name="serverDir" />
+
+		<sequential>
+			<echo>Searching for portal-ext.properties</echo>
+			<if>
+				<available file="@{propertyDir}/portal-ext.properties"/>
+				<then>
+					<echo>portal-ext.properties found!</echo>
+					<if>
+						<available file="@{serverDir}/webapps/ROOT/WEB-INF/classes/" type="dir"/>
+						<then>
+							<echo>Bundle folder found! copying to @{serverDir}/webapps/ROOT/WEB-INF/classes/</echo>
+							<delete file="@{serverDir}/webapps/ROOT/WEB-INF/classes/portal-ext.properties"></delete>
+							<copy file="@{propertyDir}/portal-ext.properties" todir="@{serverDir}/webapps/ROOT/WEB-INF/classes/"></copy>
+						</then>
+					</if>
+				</then>
+				<else>
+					<echo>portal-ext.properties not found!</echo>
+					<fail message="Missing portal-ext.properties at @{propertyDir}"/>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<!-- Searches for and updates portal-ext.properties-->
+	<macrodef name="create-portal-ext-prop-mariadb">
+		<attribute name="propertyDir" />
+		<attribute name="serverDir" />
+
+		<sequential>
+			<echo>Searching for portal-ext.properties</echo>
+			<if>
+				<available file="@{propertyDir}/maria/portal-ext.properties"/>
+				<then>
+					<echo>portal-ext.properties found!</echo>
+					<if>
+						<available file="@{serverDir}/webapps/ROOT/WEB-INF/classes/" type="dir"/>
+						<then>
+							<echo>Bundle folder found! copying to @{serverDir}/webapps/ROOT/WEB-INF/classes/</echo>
+							<delete file="@{serverDir}/webapps/ROOT/WEB-INF/classes/portal-ext.properties"></delete>
+							<copy file="@{propertyDir}/maria/portal-ext.properties" todir="@{serverDir}/webapps/ROOT/WEB-INF/classes/"></copy>
+						</then>
+					</if>
+				</then>
+				<else>
+					<echo>portal-ext.properties not found!</echo>
+					<fail message="Missing portal-ext.properties at @{propertyDir}/maria"/>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+</project>

@@ -12,91 +12,38 @@
 		</classpath>
 	</taskdef>
 
-	<!-- Deletes and creates a fresh MYSQL database -->
+	<include file="build-docker.xml" />
+	<include file="build-portal-ext.xml" />
+
+	<!-- Deletes and creates a fresh database -->
 	<macrodef name="reset-db">
+		<attribute name="database" />
 		<attribute name="exePath" />
-		<attribute name="databaseName" />
 
 		<sequential>
 			<echo>Resetting Database ${sql.databaseName}</echo>
 
-			<exec executable="@{exePath}">
-				<arg value="-e"/>
-				<arg value="drop database if exists @{databaseName}; create database @{databaseName} char set utf8;"/>
-			</exec>
+			<remove-container containerName="@{database}" dockerPath="@{exePath}" />
+			<start-database-container containerName="@{database}" databaseName="@{database}" dockerPath="@{exePath}" />
 
 			<echo>Resetting successful!</echo>
 		</sequential>
 	</macrodef>
 
-	<macrodef name="reset-db-maria">
-		<attribute name="exePath" />
+	<macrodef name="set-portal-ext-props">
 		<attribute name="databaseName" />
+		<attribute name="destinationDir" />
+		<attribute name="propertiesDir" />
 
 		<sequential>
-			<echo>Resetting Database ${sql.databaseName}</echo>
-			<exec executable="@{exePath}">
-				<arg value="-e"/>
-				<arg value="drop database if exists @{databaseName}; create database @{databaseName} char set utf8;"/>
-			</exec>
+			<!--Default -->
+			<copy-file destinationDir="@{destinationDir}" fileDir="@{propertiesDir}" fileName="portal-ext.properties" />
 
-			<echo>Resetting successful!</echo>
-		</sequential>
-	</macrodef>
+			<!-- Database -->
+			<append-file destinationFile="@{destinationDir}/portal-ext.properties" file="@{propertiesDir}/database/@{databaseName}.properties"/>
 
-	<!-- Searches for and updates portal-ext.properties-->
-	<macrodef name="create-portal-ext-prop">
-		<attribute name="propertyDir" />
-		<attribute name="serverDir" />
-
-		<sequential>
-			<echo>Searching for portal-ext.properties</echo>
-			<if>
-				<available file="@{propertyDir}/portal-ext.properties"/>
-				<then>
-					<echo>portal-ext.properties found!</echo>
-					<if>
-						<available file="@{serverDir}/webapps/ROOT/WEB-INF/classes/" type="dir"/>
-						<then>
-							<echo>Bundle folder found! copying to @{serverDir}/webapps/ROOT/WEB-INF/classes/</echo>
-							<delete file="@{serverDir}/webapps/ROOT/WEB-INF/classes/portal-ext.properties"></delete>
-							<copy file="@{propertyDir}/portal-ext.properties" todir="@{serverDir}/webapps/ROOT/WEB-INF/classes/"></copy>
-						</then>
-					</if>
-				</then>
-				<else>
-					<echo>portal-ext.properties not found!</echo>
-					<fail message="Missing portal-ext.properties at @{propertyDir}"/>
-				</else>
-			</if>
-		</sequential>
-	</macrodef>
-
-	<!-- Searches for and updates portal-ext.properties-->
-	<macrodef name="create-portal-ext-prop-mariadb">
-		<attribute name="propertyDir" />
-		<attribute name="serverDir" />
-
-		<sequential>
-			<echo>Searching for portal-ext.properties</echo>
-			<if>
-				<available file="@{propertyDir}/maria/portal-ext.properties"/>
-				<then>
-					<echo>portal-ext.properties found!</echo>
-					<if>
-						<available file="@{serverDir}/webapps/ROOT/WEB-INF/classes/" type="dir"/>
-						<then>
-							<echo>Bundle folder found! copying to @{serverDir}/webapps/ROOT/WEB-INF/classes/</echo>
-							<delete file="@{serverDir}/webapps/ROOT/WEB-INF/classes/portal-ext.properties"></delete>
-							<copy file="@{propertyDir}/maria/portal-ext.properties" todir="@{serverDir}/webapps/ROOT/WEB-INF/classes/"></copy>
-						</then>
-					</if>
-				</then>
-				<else>
-					<echo>portal-ext.properties not found!</echo>
-					<fail message="Missing portal-ext.properties at @{propertyDir}/maria"/>
-				</else>
-			</if>
+		<!-- Remote Staging-->
+		
 		</sequential>
 	</macrodef>
 
@@ -207,10 +154,10 @@
 		<attribute name="serverDir" />
 
 		<sequential>
-			<echo>Setting memory of @{serverDir}/bin/setenv.bat to use 4GB</echo>
-			<replaceregexp file="@{serverDir}/bin/setenv.bat"
+			<echo>Setting memory of @{serverDir}/bin/setenv.sh to use 4GB</echo>
+			<replaceregexp file="@{serverDir}/bin/setenv.sh"
 			match="-Xms[0-9]+m" replace="-Xms@{appServerMemory}" byline="false" />
-			<replaceregexp file="@{serverDir}/bin/setenv.bat"
+			<replaceregexp file="@{serverDir}/bin/setenv.sh"
 			match="-Xmx[0-9]+m" replace="-Xmx@{appServerMemory}" byline="false" />
 		</sequential>
 	</macrodef>

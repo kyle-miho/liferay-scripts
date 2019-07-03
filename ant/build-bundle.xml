@@ -8,10 +8,6 @@
 		</classpath>
 	</taskdef>
 
-	<macrodef name="download">
-		
-	</macrodef>
-
 	<macrodef name="load">
 		<attribute name="backUpExtension" />
 		<attribute name="homeDir" />

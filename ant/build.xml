@@ -51,17 +51,8 @@
 		<set-bundle-properties />
 		<set-database-properties />
 
-		<if>
-			<equals arg1="${database.name}" arg2="maria" />
-			<then>
-				<reset-db-maria databaseName="${sql.databaseName}" exePath="${maria.prog}"/>
-				<create-portal-ext-prop-mariadb serverDir="${specificbundle.path}/${server.name}" propertyDir="${property.location}" />
-			</then>
-			<else>
-				<reset-db databaseName="${sql.databaseName}" exePath="${sql.prog}" />
-				<create-portal-ext-prop serverDir="${specificbundle.path}/${server.name}" propertyDir="${property.location}" />
-			</else>
-		</if>
+		<reset-db database="${database.name}" exePath="${docker.prog}" />
+		<set-portal-ext-props databaseName="${database.name}" destinationDir="${specificbundle.path}/${server.name}/webapps/ROOT/WEB-INF/classes/" propertiesDir="../properties" />
 
 		<if>
 			<equals arg1="${license.required}" arg2 = "true" />
