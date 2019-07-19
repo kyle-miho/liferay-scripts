@@ -80,20 +80,21 @@
 		</sequential>
 	</macrodef>
 
-	<macrodef name="replace-mysql-jar">
+	<macrodef name="replace-jar">
 		<attribute name="serverDir" />
+		<attribute name="jarName" />
 		<attribute name="jarPath" />
 
 		<sequential>
-			<echo>Updating mysql.jar in @{serverDir}/lib/ext</echo>
+			<echo>Updating @{jarName} in @{serverDir}/lib/ext</echo>
 			<if>
-				<available file="@{serverDir}/lib/ext/mysql.jar"/>
+				<available file="@{serverDir}/lib/ext/@{jarName}"/>
 				<then>
-					<echo>Old mysql.jar Found! Deleting.</echo>
-					<delete file="@{serverDir}/lib/ext/mysql.jar"/>
+					<echo>Old @{jarName} Found! Deleting.</echo>
+					<delete file="@{serverDir}/lib/ext/@{jarName}"/>
 				</then>
 			</if>
-			<copy file="@{jarpath}/mysql.jar" todir="@{serverDir}/lib/ext"/>
+			<copy file="@{jarpath}/@{jarName}" todir="@{serverDir}/lib/ext"/>
 		</sequential>
 	</macrodef>
 

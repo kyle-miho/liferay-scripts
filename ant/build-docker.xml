@@ -45,6 +45,12 @@
 						<_start-postgres containerName="@{containerName}" dockerPath="@{dockerPath}" />
 					</then>
 				</elseif>
+				<elseif>
+					<equals arg1="@{databaseName}" arg2="oracle" />
+					<then>
+						<_start-oracle containerName="@{containerName}" dockerPath="@{dockerPath}" />
+					</then>
+				</elseif>
 			</if>
 			
 		</sequential>
@@ -103,6 +109,15 @@
 
 				<arg value="--character-set-server=utf8" />
 			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-oracle">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<echo>Executing Oracle</echo>
 		</sequential>
 	</macrodef>
 
