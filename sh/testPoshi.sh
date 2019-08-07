@@ -1,0 +1,1 @@
+ant -f build-test.xml run-selenium-test -Dtest.class=$1

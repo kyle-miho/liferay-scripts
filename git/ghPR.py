@@ -41,7 +41,7 @@ if subprocess.call(output,shell=True) != 0:
     print("An error has occured, please use Node GH normally to check for the error")
 
 #gh-jira call if reviewer is in reviewer list
-reviewers = {'kyle-miho':'kyle.miho','brianchiu':'brian.chiu','brianchandotcom':'brian.chan','jkapper':'jurgen.kappler'}
+reviewers = {'kyle-miho':'kyle.miho','ruben-pulido':'ruben.pulido','brianchandotcom':'brian.chan','jkappler':'jurgen.kappler','ruben':'ruben.pulido','jurgen':'jurgen.kappler'}
 
 #call gh jira if applicable
 if reviewer not in reviewers:
@@ -49,5 +49,5 @@ if reviewer not in reviewers:
     exit()
 
 jiraName = reviewers[reviewer]
-subprocess.call("gh jira " + ticketType + "-" + ticketNumber + " --assignee " + jiraName + " --transition \"Submit for Review\"",shell=True)
+subprocess.call("gh jira " + ticketType + "-" + ticketNumber + " --assignee " + jiraName + " --transition \"Code Review Request\"",shell=True)
 subprocess.call("gh jira " + ticketType + "-" + ticketNumber + " --browser")
