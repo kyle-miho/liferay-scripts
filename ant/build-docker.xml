@@ -22,6 +22,18 @@
 		</sequential>
 	</macrodef>
 
+	<macrodef name="prune-volume">
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="volume" />
+				<arg value="prune" />
+				<arg value="-f" />
+			</exec>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="start-database-container">
 		<attribute name="containerName" />
 		<attribute name="databaseName" />

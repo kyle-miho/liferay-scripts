@@ -24,6 +24,7 @@
 			<echo>Resetting Database ${sql.databaseName}</echo>
 
 			<remove-container containerName="@{database}" dockerPath="@{exePath}" />
+			<prune-volume dockerPath="@{exePath}" />
 			<start-database-container containerName="@{database}" databaseName="@{database}" dockerPath="@{exePath}" />
 
 			<echo>Resetting successful!</echo>

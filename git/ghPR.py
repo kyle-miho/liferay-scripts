@@ -50,4 +50,3 @@ if reviewer not in reviewers:
 
 jiraName = reviewers[reviewer]
 subprocess.call("gh jira " + ticketType + "-" + ticketNumber + " --assignee " + jiraName + " --transition \"Code Review Request\"",shell=True)
-subprocess.call("gh jira " + ticketType + "-" + ticketNumber + " --browser")
