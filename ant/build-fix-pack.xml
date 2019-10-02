@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<project name="Liferay-Automation-Remote-FixPack">
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<macrodef name="give-patching-tool-permissions">
+		<attribute name="bundleDir"/>
+
+		<sequential>
+			<chmod file="@{bundleDir}/patching-tool/patching-tool.sh" perm="+x"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="move-fixpack-zip">
+		<attribute name="bundleDir"/>
+
+		<sequential>
+			<echo>Placing fix pack zip into patching tool patches</echo>
+			<echo>${fixpack.location}</echo>
+			<copy todir="@{bundleDir}/patching-tool/patches">
+				<fileset dir="${fixpack.location}">
+					<include name="*.zip" />
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-fp-autodiscovery">
+		<attribute name="bundleDir"/>
+
+		<sequential>
+			<exec executable="@{bundleDir}/patching-tool/patching-tool.sh">
+				<arg value="auto-discovery"/>
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-fp-install">
+		<attribute name="bundleDir"/>
+
+		<sequential>
+			<exec executable="@{bundleDir}/patching-tool/patching-tool.sh">
+				<arg value="install"/>
+			</exec>
+		</sequential>
+	</macrodef>
+</project>

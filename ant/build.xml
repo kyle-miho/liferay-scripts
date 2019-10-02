@@ -14,6 +14,7 @@
 
 	<!-- imports -->
 	<include file="build-bundle.xml" />
+	<include file="build-fix-pack.xml" />
 	<include file="build-get-user-input.xml" />
 	<include file="build-remote-staging.xml" />
 	<include file="build-reset-bundle.xml" />
@@ -25,25 +26,66 @@
 	specificbundle.path = path to liferay bundle above server
 	-->
 
+	<target name="run-fix-pack">
+		<set-bundle-properties />
+
+		<!-- check if bundle has a patching tool -->
+		<if>
+			<not>
+				<available file="${specificbundle.path}/patching-tool" type="dir"/>
+			</not>
+			<then>
+				<fail message="patching-tool directory does not exist for this bundle" />
+			</then>
+		</if>
+
+		<!-- copy bundle into fp bundle-->
+		<save backUpExtension="fp" homeDir="${specificbundle.path}" />
+
+		<!-- Move Fix Pack zip -->
+		<move-fixpack-zip bundleDir="${specificbundle.path}-fp" />
+
+		<!-- give patching tool permissions-->
+		<give-patching-tool-permissions bundleDir="${specificbundle.path}-fp" />
+
+		<!-- run patching tool -->
+		<run-fp-autodiscovery bundleDir="${specificbundle.path}-fp" />
+		<run-fp-install bundleDir="${specificbundle.path}-fp" />
+	</target>
+
 	<!--Sets up remote staging based on master bundle -->
 	<target name="setup-remote-staging">
 		<set-bundle-properties />
 
+		<!-- reset databases-->
+		<reset-db database="mysql" exePath="${docker.prog}" />
+		<reset-db database="maria" exePath="${docker.prog}" />
+
+		<!-- clean bundle data-deploy-->
+		<reset-data-deploy homeDir="${specificbundle.path}" />
+
+		<!--add osgi config for remote staging-->
+		<update-remote-staging-config propertiesDir="${property.location}" bundleDir ="${specificbundle.path}"/>
+
+		<!-- duplicate bundle-->
 		<save backUpExtension="remote" homeDir="${specificbundle.path}" />
 
-		<var name="default-serverDir" value ="${specificbundle.path}/${server.name}" />
-		<var name="remote-serverDir" value = "${specificbundle.path}-remote/${server.name}" />
+		<var name="default-serverDir" value="${specificbundle.path}/${server.name}" />
+		<var name="remote-serverDir" value="${specificbundle.path}-remote/${server.name}" />
 
 		<!-- update server.xml -->
 		<update-server-xml portPrefix="9" serverDir="${remote-serverDir}" />
 
 		<!-- update portal-ext properties focus on appending correct props-->
-		<create-portal-ext-prop serverDir="${default-serverDir}" propertyDir="${property.location}" />
-		<create-portal-ext-prop-mariadb serverDir="${remote-serverDir}" propertyDir="${property.location}" />
+		<set-portal-ext-props databaseName="mysql" destinationDir="${default-serverDir}/webapps/ROOT/WEB-INF/classes/" propertiesDir="${property.location}" />
+		<set-portal-ext-props databaseName="maria" destinationDir="${remote-serverDir}/webapps/ROOT/WEB-INF/classes/" propertiesDir="${property.location}" />
 
 		<!-- update needed ports -->
 		<update-jmx-port port="9099" serverDir="${remote-serverDir}" />
 		<update-jpda-port port="9099" serverDir="${remote-serverDir}" />
+
+		<!-- give catalina run permissions since it gets removed-->
+		<enable-catalina-run-permissions serverDir="${remote-serverDir}" />
 	</target>
 
 	<!--Tomcat dependencies required after bundle compilation-->
@@ -52,7 +94,7 @@
 		<set-database-properties />
 
 		<reset-db database="${database.name}" exePath="${docker.prog}" />
-		<set-portal-ext-props databaseName="${database.name}" destinationDir="${specificbundle.path}/${server.name}/webapps/ROOT/WEB-INF/classes/" propertiesDir="../properties" />
+		<set-portal-ext-props databaseName="${database.name}" destinationDir="${specificbundle.path}/${server.name}/webapps/ROOT/WEB-INF/classes/" propertiesDir="${property.location}" />
 
 		<if>
 			<equals arg1="${license.required}" arg2 = "true" />

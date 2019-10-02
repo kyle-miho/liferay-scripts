@@ -8,6 +8,14 @@
 		</classpath>
 	</taskdef>
 
+	<macrodef name="enable-catalina-run-permissions">
+		<attribute name="serverDir"/>
+
+		<sequential>
+			<chmod file="@{serverDir}/bin/catalina.sh" perm="+x"/>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="update-server-xml">
 		<attribute name="portPrefix"/>
 		<attribute name="serverDir"/>
@@ -18,13 +26,30 @@
 		</sequential>
 	</macrodef>
 
+ 	<macrodef name="update-remote-staging-config">
+	 	<attribute name="propertiesDir"/>
+		<attribute name="bundleDir"/>
+
+		<sequential>
+			<echo>Updating remote staging configuration</echo>
+			<if>
+				<available file="@{propertiesDir}/osgi/configs/com.liferay.portal.security.auth.verifier.tunnel.module.configuration.TunnelAuthVerifierConfiguration-default.config"/>
+				<then>
+					<echo>Old remote staging configuration found! deleting.</echo>
+					<delete file="@{bundleDir}/osgi/configs/com.liferay.portal.security.auth.verifier.tunnel.module.configuration.TunnelAuthVerifierConfiguration-default.config"/>
+				</then>
+			</if>
+			<copy file="@{propertiesDir}/osgi/configs/com.liferay.portal.security.auth.verifier.tunnel.module.configuration.TunnelAuthVerifierConfiguration-default.config" todir="@{bundleDir}/osgi/config"/>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="update-jmx-port">
 		<attribute name="port"/>
 		<attribute name="serverDir"/>
 
 		<sequential>
-			<echo>Setting jmx port in setenv.bat</echo>
-			<replaceregexp file="@{serverDir}/bin/setenv.bat" match="(-Dcom.sun.management.jmxremote.port=)[0-9]+" replace="\1@{port}"/>
+			<echo>Setting jmx port in setenv.sh</echo>
+			<replaceregexp file="@{serverDir}/bin/setenv.sh" match="(-Dcom.sun.management.jmxremote.port=)[0-9]+" replace="\1@{port}"/>
 		</sequential>
 	</macrodef>
 
@@ -33,8 +58,8 @@
 		<attribute name="serverDir"/>
 
 		<sequential>
-			<echo>Setting jpda port in catalina.bat</echo>
-			<replaceregexp file="@{serverDir}/bin/catalina.bat" match="(set JPDA_ADDRESS=localhost:)[0-9]+" replace="\1@{port}"/>
+			<echo>Setting jpda port in catalina.sh</echo>
+			<replaceregexp file="@{serverDir}/bin/catalina.sh" match="(set JPDA_ADDRESS=localhost:)[0-9]+" replace="\1@{port}"/>
 		</sequential>
 	</macrodef>
 </project>

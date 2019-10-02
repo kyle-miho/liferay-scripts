@@ -43,7 +43,8 @@
 			<!-- Database -->
 			<append-file destinationFile="@{destinationDir}/portal-ext.properties" file="@{propertiesDir}/database/@{databaseName}.properties"/>
 
-		<!-- Remote Staging-->
+			<!-- Remote Staging-->
+			<append-file destinationFile="@{destinationDir}/portal-ext.properties" file="@{propertiesDir}/remote-staging.properties"/>
 		
 		</sequential>
 	</macrodef>
