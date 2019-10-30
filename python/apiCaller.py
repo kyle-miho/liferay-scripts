@@ -9,8 +9,9 @@ from dataGenerator import WidgetPageCreator
 ###CONSTANTS
 companyId = companyAPI.getCompanyId()
 
+
 #Create Group
-groupId = groupAPI.addGroup('Test Site Name API')
+groupId = groupAPI.addGroup('Test Site Name API 2')
 
 #DO STUFF
 WidgetPageCreator.createWidgetPages(groupId)

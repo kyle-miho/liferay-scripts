@@ -14,7 +14,7 @@
 
 	<macrodef name="set-bundle-properties">
 		<sequential>
-			<input message="Which bundle do you want to work with?" validargs="master,master-private,ce72,dxp72,ce71ga4,dxp71ga1,ce70ga6,dxp70ga1,ce62ga6,dxp62sp20,test" addproperty="bundle.type"/>
+			<input message="Which bundle do you want to work with?" validargs="master,master-private,71x-private,ce72,dxp72,ce71,dxp71,ce70,dxp70,ce62,dxp62,test" addproperty="bundle.type"/>
 			<if>
 				<equals arg1="master" arg2="${bundle.type}"/>
 				<then>
@@ -25,6 +25,13 @@
 					<equals arg1="master-private" arg2="${bundle.type}"/>
 					<then>
 						<property name="current.bundle.name" value="${masterprivate.name}"/>
+						<property name="license.required" value="True"/>
+					</then>
+				</elseif>
+				<elseif>
+					<equals arg1="71x-private" arg2="${bundle.type}"/>
+					<then>
+						<property name="current.bundle.name" value="${71xprivate.name}"/>
 						<property name="license.required" value="True"/>
 					</then>
 				</elseif>
@@ -42,45 +49,45 @@
 					</then>
 				</elseif>
 				<elseif>
-					<equals arg1="ce71ga4" arg2="${bundle.type}" />
+					<equals arg1="ce71" arg2="${bundle.type}" />
 					<then>
-						<property name="current.bundle.name" value="${ce71ga2.name}" />
+						<property name="current.bundle.name" value="${ce71.name}" />
 					</then>
 				</elseif>
 				<elseif>
-					<equals arg1="dxp71ga1" arg2="${bundle.type}"/>
+					<equals arg1="dxp71" arg2="${bundle.type}"/>
 					<then>
-						<property name="current.bundle.name" value="${dxp71ga1.name}"/>
+						<property name="current.bundle.name" value="${dxp71.name}"/>
 						<property name="tomcat910" value="yes" />
 						<property name="license.required" value="True"/>
 					</then>
 				</elseif>
 				<elseif>
-				<equals arg1="ce70ga6" arg2="${bundle.type}"/>
+				<equals arg1="ce70" arg2="${bundle.type}"/>
 					<then>
 						<property name="tomcat8" value="yes" />
-						<property name="current.bundle.name" value="${ga6ce7.name}"/>
+						<property name="current.bundle.name" value="${ce70.name}"/>
 					</then>
 				</elseif>
 				<elseif>
-					<equals arg1="dxp70ga1" arg2="${bundle.type}"/>
+					<equals arg1="dxp70" arg2="${bundle.type}"/>
 					<then>
-						<property name="current.bundle.name" value="${ga1dxp.name}"/>
+						<property name="current.bundle.name" value="${dxp70.name}"/>
 						<property name="tomcat8" value="yes" />
 						<property name="license.required" value="True"/>
 					</then>
 				</elseif>
 				<elseif>
-					<equals arg1="ce62ga6" arg2="${bundle.type}"/>
+					<equals arg1="ce62" arg2="${bundle.type}"/>
 					<then>
 						<property name="current.bundle.name" value="${ce62.name}"/>
 						<property name="tomcat7" value="yes" />
 					</then>
 				</elseif>
 				<elseif>
-					<equals arg1="dxp62sp20" arg2="${bundle.type}"/>
+					<equals arg1="dxp62" arg2="${bundle.type}"/>
 					<then>
-						<property name="current.bundle.name" value="${ce62ee.name}"/>
+						<property name="current.bundle.name" value="${dxp62.name}"/>
 						<property name="tomcat7" value="yes" />
 					</then>
 				</elseif>

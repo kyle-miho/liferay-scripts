@@ -51,15 +51,15 @@
 
 	<!-- Deletes Data and Deploy Folders -->
 	<macrodef name="reset-data-deploy">
-		<attribute name="homeDir" />
+		<attribute name="bundleDir" />
 
 		<sequential>
 			<echo>Searching for data folder</echo>
 			<if>
-				<available file="@{homeDir}/data" type="dir"/>
+				<available file="@{bundleDir}/data" type="dir"/>
 				<then>
 					<echo>Found! Deleting data folder</echo>
-					<delete dir="@{homeDir}/data"/>
+					<delete dir="@{bundleDir}/data"/>
 				</then>
 				<else>
 					<echo>Data folder already clean!</echo>
@@ -68,10 +68,10 @@
 
 			<echo>Searching for deploy folder</echo>
 			<if>
-				<available file="@{homeDir}/deploy" type="dir"/>
+				<available file="@{bundleDir}/deploy" type="dir"/>
 				<then>
 					<echo>Found! Deleting deploy folder</echo>
-					<!--<delete dir="@{homeDir}/deploy"/>-->
+					<!--<delete dir="@{bundleDir}/deploy"/>-->
 				</then>
 				<else>
 					<echo>Deploy folder already clean!</echo>
@@ -133,7 +133,7 @@
 	</macrodef>
 
 	<macrodef name="add-license">
-		<attribute name="homeDir" />
+		<attribute name="bundleDir" />
 		<attribute name="licenseLocation" />
 
 		<sequential>
@@ -142,7 +142,7 @@
 				<available file="@{licenseLocation}/7.0License.xml"/>
 				<then>
 					<echo>License found!</echo>
-					<copy file="@{licenseLocation}/7.0License.xml" todir="@{homeDir}/deploy/"></copy>
+					<copy file="@{licenseLocation}/7.0License.xml" todir="@{bundleDir}/deploy/"></copy>
 				</then>
 				<else>
 					<echo>License not found!</echo>

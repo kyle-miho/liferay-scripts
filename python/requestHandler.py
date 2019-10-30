@@ -24,7 +24,7 @@ def printErrors(response):
 def post(params, apiURL):
     requestURL = buildRequestURL(apiURL)
 
-    response = requests.post(requestURL, data=params, auth=('test@liferay.com', 'test'))
+    response = requests.post(requestURL, data=params, auth=(constants.email, constants.password))
 
     if response.status_code == 200:
         return response.json()
@@ -34,7 +34,7 @@ def post(params, apiURL):
 def request(params, apiURL):
     requestURL = buildRequestURL(apiURL)
 
-    response = requests.get(requestURL, params=params, auth=('test@liferay.com', 'test'))
+    response = requests.get(requestURL, params=params, auth=(constants.email, constants.password))
 
     if response.status_code == 200:
         return response.json()

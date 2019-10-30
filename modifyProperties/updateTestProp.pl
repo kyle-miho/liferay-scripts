@@ -1,3 +1,5 @@
+#!/usr/bin/perl
+
 use strict;
 use warnings;
 
@@ -7,9 +9,9 @@ $/ = "";
 #####################################################################
 #MODIFY THESE
 #TEST PROPERTY LOCATION
-my $testProp ="L:/public/master-portal/test.properties";
+my $testProp ="/home/kyle/Liferay/public/master-portal/test.properties";
 #ACCEPTANCE NAME
-my $name = "kyle-miho";
+my $name = "kyle";
 #####################################################################
 
 #don't touch properties unless if needed
@@ -36,8 +38,14 @@ write_file($testProp,$data);
 
 sub read_file {
     my ($filename) = @_;
+ 
+    if (-e $filename) {
+        print "The file exists\n";
+    } else {
+        print "The file does not exist\n";
+    }
 
-    open my $in, '<:encoding(UTF-8)', $filename or die "Could not open '$filename' for reading $!";
+    open(my $in, '<:encoding(UTF-8)', $filename) or die "Could not open '$filename' for reading \n$!\n";
     local $/ = undef;
     my $all = <$in>;
     close $in;
@@ -48,7 +56,7 @@ sub read_file {
 sub write_file {
     my ($filename, $content) = @_;
  
-    open my $out, '>:encoding(UTF-8)', $filename or die "Could not open '$filename' for writing $!";;
+    open(my $out, '>:encoding(UTF-8)', $filename) or die "Could not open '$filename' for writing $!";
     print $out $content;
     close $out;
  

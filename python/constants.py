@@ -1,6 +1,9 @@
 VIRTUAL_HOST = 'localhost'
 port = '8080'
 
+email = 'test@liferay.com'
+password = 'test'
+
 ## layoutTemplates
 
 class LayoutTemplate:

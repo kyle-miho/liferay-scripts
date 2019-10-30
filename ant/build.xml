@@ -40,7 +40,7 @@
 		</if>
 
 		<!-- copy bundle into fp bundle-->
-		<save backUpExtension="fp" homeDir="${specificbundle.path}" />
+		<save backUpExtension="fp" bundleDir="${specificbundle.path}" />
 
 		<!-- Move Fix Pack zip -->
 		<move-fixpack-zip bundleDir="${specificbundle.path}-fp" />
@@ -51,6 +51,9 @@
 		<!-- run patching tool -->
 		<run-fp-autodiscovery bundleDir="${specificbundle.path}-fp" />
 		<run-fp-install bundleDir="${specificbundle.path}-fp" />
+
+		<!-- give permissions to catalina.sh-->
+		<enable-catalina-run-permissions serverDir="${specificbundle.path}-fp/${server.name}" />
 	</target>
 
 	<!--Sets up remote staging based on master bundle -->
@@ -62,13 +65,13 @@
 		<reset-db database="maria" exePath="${docker.prog}" />
 
 		<!-- clean bundle data-deploy-->
-		<reset-data-deploy homeDir="${specificbundle.path}" />
+		<reset-data-deploy bundleDir="${specificbundle.path}" />
 
 		<!--add osgi config for remote staging-->
 		<update-remote-staging-config propertiesDir="${property.location}" bundleDir ="${specificbundle.path}"/>
 
 		<!-- duplicate bundle-->
-		<save backUpExtension="remote" homeDir="${specificbundle.path}" />
+		<save backUpExtension="remote" bundleDir="${specificbundle.path}" />
 
 		<var name="default-serverDir" value="${specificbundle.path}/${server.name}" />
 		<var name="remote-serverDir" value="${specificbundle.path}-remote/${server.name}" />
@@ -97,14 +100,13 @@
 		<set-portal-ext-props databaseName="${database.name}" destinationDir="${specificbundle.path}/${server.name}/webapps/ROOT/WEB-INF/classes/" propertiesDir="${property.location}" />
 
 		<if>
-			<equals arg1="${license.required}" arg2 = "true" />
+			<equals arg1="${license.required}" arg2 = "True" />
 			<then>
-				<add-license homeDir="${specificbundle.path}" licenseLocation="${license.location}"/>
+				<add-license bundleDir="${specificbundle.path}" licenseLocation="${license.location}"/>
 			</then>
 		</if>
 
-		<reset-data-deploy homeDir="${specificbundle.path}" />
-		<replace-jar jarName="mysql.jar" jarPath="${sql.jarpath}" serverDir="${specificbundle.path}/${server.name}" />
+		<reset-data-deploy bundleDir="${specificbundle.path}" />
 		<replace-jar jarName="ojdbc8.jar" jarPath="${sql.jarpath}" serverDir="${specificbundle.path}/${server.name}" />
 		<remove-chat-jar serverDir="${specificbundle.path}/${server.name}" />
 		<setup-setenv appServerMemory="${appserver.memory}" serverDir="${specificbundle.path}/${server.name}" />
@@ -113,12 +115,12 @@
 	<target name="load">
 		<set-bundle-properties />
 		
-		<load backUpExtension="backup" homeDir="${specificbundle.path}" />
+		<load backUpExtension="backup" bundleDir="${specificbundle.path}" />
 	</target>
 
 	<target name ="save">
 		<set-bundle-properties />
 
-		<save backUpExtension="backup" homeDir="${specificbundle.path}" />
+		<save backUpExtension="backup" bundleDir="${specificbundle.path}" />
 	</target>
 </project>
