@@ -121,6 +121,6 @@ jiraName = reviewersDict[reviewer]
 subprocess.call("gh jira " + str(ticketLink) + " --assignee " + jiraName + " --transition",shell=True)
 
 if ticketLink.project == 'LRQA':
-    subprocess.call("gh jira " + " --transition \"In Review\"",shell=True)
+    subprocess.call("gh jira " + " --transition \"Submit for Review\"",shell=True)
 elif ticketLink.project == 'LPS':
-    subprocess.call("gh jira " + " --transition",shell=True)
+    subprocess.call("gh jira " + " --transition \"Code Review Request\"",shell=True)
