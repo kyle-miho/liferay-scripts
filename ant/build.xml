@@ -97,6 +97,7 @@
 		<set-database-properties />
 
 		<reset-db database="${database.name}" exePath="${docker.prog}" />
+		<reset-db-jar database="${database.name}" jarPath="${sql.jarpath}" serverDir="${specificbundle.path}/${server.name}" />
 		<set-portal-ext-props databaseName="${database.name}" destinationDir="${specificbundle.path}/${server.name}/webapps/ROOT/WEB-INF/classes/" propertiesDir="${property.location}" />
 
 		<if>
@@ -107,7 +108,6 @@
 		</if>
 
 		<reset-data-deploy bundleDir="${specificbundle.path}" />
-		<replace-jar jarName="ojdbc8.jar" jarPath="${sql.jarpath}" serverDir="${specificbundle.path}/${server.name}" />
 		<remove-chat-jar serverDir="${specificbundle.path}/${server.name}" />
 		<setup-setenv appServerMemory="${appserver.memory}" serverDir="${specificbundle.path}/${server.name}" />
 	</target>

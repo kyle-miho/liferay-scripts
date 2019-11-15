@@ -63,8 +63,40 @@
 						<_start-oracle containerName="@{containerName}" dockerPath="@{dockerPath}" />
 					</then>
 				</elseif>
+				<elseif>
+					<equals arg1="@{databaseName}" arg2="db2" />
+					<then>
+						<_start-db2 containerName="@{containerName}" dockerPath="@{dockerPath}" />
+					</then>
+				</elseif>
 			</if>
 			
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-db2">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="50000:50000" />
+
+				<arg value="-p" />
+				<arg value="55000:55000" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				<arg value="--restart=always" />
+				<arg value="--privileged=true" />
+
+				<arg value="-d" />
+				<arg value="db2:11.1" />
+			</exec>
 		</sequential>
 	</macrodef>
 

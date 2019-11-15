@@ -15,17 +15,40 @@
 	<include file="build-docker.xml" />
 	<include file="build-portal-ext.xml" />
 
+	<macrodef name="reset-db-jar">
+		<attribute name="database" />
+		<attribute name="jarPath" />
+		<attribute name="serverDir" />
+
+		<sequential>
+			<if> 
+				<equals arg1="@{database}" arg2="db2" />
+				<then>
+					<replace-jar jarName="db2jcc4.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
+				</then>
+			</if>
+		</sequential>
+	</macrodef>
+
 	<!-- Deletes and creates a fresh database -->
 	<macrodef name="reset-db">
 		<attribute name="database" />
 		<attribute name="exePath" />
 
 		<sequential>
-			<echo>Resetting Database ${sql.databaseName}</echo>
+			<if>
+				<equals arg1="@{database}" arg2="hypersonic" />
+				<then>
+					<echo>Hypersonic does not need to be cleaned since it gets cleaned when the data folder is deleted</echo>
+				</then>
+				<else>
+					<echo>Resetting Database @{database}</echo>
 
-			<remove-container containerName="@{database}" dockerPath="@{exePath}" />
-			<prune-volume dockerPath="@{exePath}" />
-			<start-database-container containerName="@{database}" databaseName="@{database}" dockerPath="@{exePath}" />
+					<remove-container containerName="@{database}" dockerPath="@{exePath}" />
+					<prune-volume dockerPath="@{exePath}" />
+					<start-database-container containerName="@{database}" databaseName="@{database}" dockerPath="@{exePath}" />
+				</else>
+			</if>
 
 			<echo>Resetting successful!</echo>
 		</sequential>
