@@ -60,7 +60,8 @@
 				<elseif>
 					<equals arg1="@{databaseName}" arg2="oracle" />
 					<then>
-						<_start-oracle containerName="@{containerName}" dockerPath="@{dockerPath}" />
+						<echo>Not starting oracle container automatically currently</echo>
+						<!-- <_start-oracle containerName="@{containerName}" dockerPath="@{dockerPath}" /> -->
 					</then>
 				</elseif>
 				<elseif>
@@ -109,7 +110,7 @@
 				<arg value="run" />
 
 				<arg value="-p" />
-				<arg value="3307:3306" />
+				<arg value="3306:3306" />
 
 				<arg value="--name" />
 				<arg value="@{containerName}" />
@@ -159,10 +160,38 @@
 	<macrodef name ="_start-oracle">
 		<attribute name="containerName" />
 		<attribute name="dockerPath" />
-
+		
 		<sequential>
-			<echo>Executing Oracle</echo>
-		</sequential>
+			 <exec executable="@{dockerPath}">
+				<arg value="volume" />
+				<arg value="rm" />
+				<arg value="oracle-temp" /> 
+			</exec>
+
+			<exec executable="/bin/bash">
+				<arg value="docker/cloneVolume.sh" />
+
+				<arg value="oracle" />
+				<arg value="oracle-temp" />
+			</exec> 
+
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="1521:1521" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				 <arg value="-v" />
+				<arg value="oracle-temp:/ORCL" /> 
+
+				<arg value="-d" />
+				<arg value="oracle:12.2" />
+			</exec>
+		</sequential> 
+		
 	</macrodef>
 
 	<macrodef name ="_start-postgres">

@@ -26,6 +26,12 @@
 				<then>
 					<replace-jar jarName="db2jcc4.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
 				</then>
+				<elseif>
+					<equals arg1="@{database}" arg2="oracle" />
+					<then>
+						<replace-jar jarName="ojdbc8.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
+					</then>
+				</elseif>
 			</if>
 		</sequential>
 	</macrodef>
