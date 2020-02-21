@@ -9,6 +9,8 @@
 		</classpath>
 	</taskdef>
 
+	<include file="build-portal-ext.xml" />
+
 	<macrodef name="remove-container">
 		<attribute name="containerName" />
 		<attribute name="dockerPath" />
@@ -70,6 +72,12 @@
 						<_start-db2 containerName="@{containerName}" dockerPath="@{dockerPath}" />
 					</then>
 				</elseif>
+				<elseif>
+					<equals arg1="@{databaseName}" arg2="sqlserver" />
+					<then>
+						<_start-sqlserver containerName="@{containerName}" dockerPath="@{dockerPath}" />
+					</then>
+				</elseif>
 			</if>
 			
 		</sequential>
@@ -110,7 +118,7 @@
 				<arg value="run" />
 
 				<arg value="-p" />
-				<arg value="3306:3306" />
+				<arg value="3307:3306" />
 
 				<arg value="--name" />
 				<arg value="@{containerName}" />
@@ -154,6 +162,87 @@
 
 				<arg value="--character-set-server=utf8" />
 			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-sqlserver">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+		
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="1433:1433" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				<arg value="-e" />
+				<arg value="MSSQL_PID=Developer" />
+
+				<arg value="-e" />
+				<arg value="SA_PASSWORD=Liferay123" />
+
+				<arg value="-e" />
+				<arg value="ACCEPT_EULA=Y" />
+
+				<arg value="-d" />
+				<arg value="sqlserver:2019" />
+			</exec>
+
+			<echo>Waiting 90 seconds for sql-server to initialize</echo>
+			<sleep seconds="90"/>
+
+			<exec executable="/bin/bash">
+				<arg value="docker/sqlserver.sh" />
+			</exec> 
+
+			<!-- <exec executable="/bin/bash">
+				<arg value="docker" />
+
+				<arg value="exec" />
+
+				<arg value="sqlserver" />
+				<arg value="/opt/mssql-tools/bin/sqlcmd" />
+
+				<arg value="-S" />
+				<arg value="localhost" />
+
+				<arg value="-U" />
+				<arg value="sa" />
+
+				<arg value="-P" />
+				<arg value="Liferay123" />
+
+				<arg value="-Q" />
+				<arg value="'CREATE DATABASE lportal'" />
+			</exec> -->
+
+			<!-- <exec executable="@{dockerPath}">
+				<arg value="exec" />
+
+				<arg value="-it" />
+				<arg value="@{containerName}" />
+
+				<arg value="/opt/mssql-tools/bin/sqlcmd" />
+
+				<arg value="-S" />
+				<arg value="localhost" />
+
+				<arg value="-U" />
+				<arg value="sa" />
+
+				<arg value="-P" />
+				<arg value="Liferay123" />
+
+				<arg value="-Q" />
+				<arg value="'CREATE DATABASE lportal'" />
+
+			
+			</exec> 	-->
+		
 		</sequential>
 	</macrodef>
 
