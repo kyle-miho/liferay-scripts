@@ -32,6 +32,12 @@
 						<replace-jar jarName="ojdbc8.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
 					</then>
 				</elseif>
+				<elseif>
+					<equals arg1="@{database}" arg2="sqlserver" />
+					<then>
+						<replace-jar jarName="mssql-jdbc-7.4.1.jre8.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
+					</then>
+				</elseif>
 			</if>
 		</sequential>
 	</macrodef>
