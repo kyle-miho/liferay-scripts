@@ -16,6 +16,7 @@
 	<include file="build-bundle.xml" />
 	<include file="build-fix-pack.xml" />
 	<include file="build-get-user-input.xml" />
+	<include file="build-clustering.xml" />
 	<include file="build-remote-staging.xml" />
 	<include file="build-reset-bundle.xml" />
 
@@ -54,6 +55,38 @@
 
 		<!-- give permissions to catalina.sh-->
 		<enable-catalina-run-permissions serverDir="${specificbundle.path}-fp/${server.name}" />
+	</target>
+
+	<target name="setup-clustering">
+		<set-bundle-properties />
+		<set-database-properties />
+
+		<reset-data-deploy bundleDir="${specificbundle.path}" />
+		<reset-db database="${database.name}" exePath="${docker.prog}" />
+
+		<!--add osgi config for clustering-->
+		<update-clustering-config propertiesDir="${property.location}" bundleDir ="${specificbundle.path}"/>
+
+		<setup-setenv appServerMemory="${appserverCluster.memory}" serverDir="${specificbundle.path}/${server.name}" />
+
+		<!-- update portal-ext properties focus on appending correct props-->
+		<set-portal-ext-props databaseName="${database.name}" destinationDir="${specificbundle.path}/${server.name}/webapps/ROOT/WEB-INF/classes/" clusteringEnabled="true" propertiesDir="${property.location}" />
+
+		<!-- duplicate bundle-->
+		<save backUpExtension="cluster" bundleDir="${specificbundle.path}" />
+
+		<var name="default-serverDir" value="${specificbundle.path}/${server.name}" />
+		<var name="cluster-serverDir" value="${specificbundle.path}-cluster/${server.name}" />
+
+		<!-- update server.xml -->
+		<update-server-xml portPrefix="9" serverDir="${cluster-serverDir}" />
+
+		<!-- update needed ports -->
+		<update-jmx-port port="9099" serverDir="${cluster-serverDir}" />
+		<update-jpda-port port="9099" serverDir="${cluster-serverDir}" />
+
+		<!-- give catalina run permissions since it gets removed-->
+		<enable-catalina-run-permissions serverDir="${cluster-serverDir}" />
 	</target>
 
 	<!--Sets up remote staging based on master bundle -->

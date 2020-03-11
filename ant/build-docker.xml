@@ -197,52 +197,7 @@
 
 			<exec executable="/bin/bash">
 				<arg value="docker/sqlserver.sh" />
-			</exec> 
-
-			<!-- <exec executable="/bin/bash">
-				<arg value="docker" />
-
-				<arg value="exec" />
-
-				<arg value="sqlserver" />
-				<arg value="/opt/mssql-tools/bin/sqlcmd" />
-
-				<arg value="-S" />
-				<arg value="localhost" />
-
-				<arg value="-U" />
-				<arg value="sa" />
-
-				<arg value="-P" />
-				<arg value="Liferay123" />
-
-				<arg value="-Q" />
-				<arg value="'CREATE DATABASE lportal'" />
-			</exec> -->
-
-			<!-- <exec executable="@{dockerPath}">
-				<arg value="exec" />
-
-				<arg value="-it" />
-				<arg value="@{containerName}" />
-
-				<arg value="/opt/mssql-tools/bin/sqlcmd" />
-
-				<arg value="-S" />
-				<arg value="localhost" />
-
-				<arg value="-U" />
-				<arg value="sa" />
-
-				<arg value="-P" />
-				<arg value="Liferay123" />
-
-				<arg value="-Q" />
-				<arg value="'CREATE DATABASE lportal'" />
-
-			
-			</exec> 	-->
-		
+			</exec> 		
 		</sequential>
 	</macrodef>
 

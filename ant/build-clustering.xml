@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project name="Liferay-Automation-Clusteringg">
+	<property file="app.properties"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${antcontrib.location}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<macrodef name="update-clustering-config">
+	 	<attribute name="propertiesDir"/>
+		<attribute name="bundleDir"/>
+
+		<sequential>
+			<echo>Updating remote staging configuration</echo>
+			<if>
+				<available file="@{bundleDir}/osgi/configs/com.liferay.portal.store.filesystem.configuration.FileSystemStoreConfiguration.config"/>
+				<then>
+					<echo>deleting old clustering config.</echo>
+					<delete file="@{bundleDir}/osgi/configs/com.liferay.portal.store.filesystem.configuration.FileSystemStoreConfiguration.config"/>
+				</then>
+			</if>
+			<copy file="@{propertiesDir}/osgi/config/com.liferay.portal.store.filesystem.configuration.FileSystemStoreConfiguration.config" todir="@{bundleDir}/osgi/configs"/>
+	
+            <replaceregexp file="@{bundleDir}/osgi/configs/com.liferay.portal.store.filesystem.configuration.FileSystemStoreConfiguration.config"
+                match="@\{bundleDir\}" replace="@{bundleDir}" byline="false" />
+        </sequential>
+	</macrodef>
+</project>

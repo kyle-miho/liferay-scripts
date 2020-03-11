@@ -67,6 +67,7 @@
 	</macrodef>
 
 	<macrodef name="set-portal-ext-props">
+		<attribute name="clusteringEnabled" default="false" />
 		<attribute name="databaseName" />
 		<attribute name="destinationDir" />
 		<attribute name="propertiesDir" />
@@ -80,6 +81,15 @@
 
 			<!-- Remote Staging-->
 			<append-file destinationFile="@{destinationDir}/portal-ext.properties" file="@{propertiesDir}/remote-staging.properties"/>
+
+			<!-- Clustering-->
+			<if>
+				<equals arg1="@{clusteringEnabled}" arg2="true"/>
+				<then>
+					<echo>Enable clustering</echo>
+					<append-file destinationFile="@{destinationDir}/portal-ext.properties" file="@{propertiesDir}/clustering.properties"/>
+				</then>
+			</if>
 		
 		</sequential>
 	</macrodef>
