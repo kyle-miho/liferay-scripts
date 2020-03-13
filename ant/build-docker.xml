@@ -62,8 +62,7 @@
 				<elseif>
 					<equals arg1="@{databaseName}" arg2="oracle" />
 					<then>
-						<echo>Not starting oracle container automatically currently</echo>
-						<!-- <_start-oracle containerName="@{containerName}" dockerPath="@{dockerPath}" /> -->
+						<_start-oracle containerName="@{containerName}" dockerPath="@{dockerPath}" />
 					</then>
 				</elseif>
 				<elseif>
@@ -134,6 +133,9 @@
 
 				<arg value="--character-set-server=utf8" />
 			</exec>
+
+			<echo>Waiting 15 seconds for mariadb to initialize</echo>
+			<sleep seconds="15"/>
 		</sequential>
 	</macrodef>
 
@@ -162,6 +164,9 @@
 
 				<arg value="--character-set-server=utf8" />
 			</exec>
+
+			<echo>Waiting 15 seconds for mysql to initialize</echo>
+			<sleep seconds="15"/>
 		</sequential>
 	</macrodef>
 
@@ -206,19 +211,6 @@
 		<attribute name="dockerPath" />
 		
 		<sequential>
-			 <exec executable="@{dockerPath}">
-				<arg value="volume" />
-				<arg value="rm" />
-				<arg value="oracle-temp" /> 
-			</exec>
-
-			<exec executable="/bin/bash">
-				<arg value="docker/cloneVolume.sh" />
-
-				<arg value="oracle" />
-				<arg value="oracle-temp" />
-			</exec> 
-
 			<exec executable="@{dockerPath}">
 				<arg value="run" />
 
@@ -228,12 +220,16 @@
 				<arg value="--name" />
 				<arg value="@{containerName}" />
 
-				 <arg value="-v" />
-				<arg value="oracle-temp:/ORCL" /> 
-
 				<arg value="-d" />
 				<arg value="oracle:12.2" />
 			</exec>
+
+			<echo>Waiting 90 seconds for oracle to initialize</echo>
+			<sleep seconds="90"/>
+
+			<exec executable="/bin/bash">
+				<arg value="docker/oracle.sh" />
+			</exec> 
 		</sequential> 
 		
 	</macrodef>
