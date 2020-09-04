@@ -1,0 +1,10 @@
+use master
+go
+disk resize name='master', size='90m'
+go
+create database lportal on default=1400 with override
+go
+exec sp_dboption 'lportal', 'allow nulls by default', true
+go
+exec sp_dboption 'lportal', 'select into/bulkcopy/pllsort', true
+go

@@ -38,6 +38,12 @@
 						<replace-jar jarName="mssql-jdbc-7.4.1.jre8.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
 					</then>
 				</elseif>
+				<elseif>
+					<equals arg1="@{database}" arg2="sybase" />
+					<then>
+						<replace-jar jarName="jconn4-7.0.jar" jarPath="@{jarPath}" serverDir="@{serverDir}" />
+					</then>
+				</elseif>
 			</if>
 		</sequential>
 	</macrodef>

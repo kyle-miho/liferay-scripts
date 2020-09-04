@@ -14,7 +14,7 @@
 
 	<macrodef name="set-bundle-properties">
 		<sequential>
-			<input message="Which bundle do you want to work with?" validargs="master,master-private,71x,ce73,ce72,dxp72,ce71,dxp71,ce70,dxp70,ce62,dxp62,test" addproperty="bundle.type"/>
+			<input message="Which bundle do you want to work with?" validargs="master,master-private,71x,ce73,ce72,dxp73,dxp72,ce71,dxp71,ce70,dxp70,ce62,dxp62,test" addproperty="bundle.type"/>
 			<if>
 				<equals arg1="master" arg2="${bundle.type}"/>
 				<then>
@@ -35,6 +35,12 @@
 					</then>
 				</elseif>
 				<elseif>
+					<equals arg1="71x" arg2="${bundle.type}"/>
+					<then>
+						<property name="current.bundle.name" value="${72x.name}"/>
+					</then>
+				</elseif>
+				<elseif>
 					<equals arg1="ce72" arg2="${bundle.type}" />
 					<then>
 						<property name="current.bundle.name" value="${ce72.name}" />
@@ -47,10 +53,18 @@
 					</then>
 				</elseif>
 				<elseif>
+					<equals arg1="dxp73" arg2="${bundle.type}" />
+					<then>
+						<property name="current.bundle.name" value="${dxp73.name}" />
+						<property name="license.required" value="True"/>
+					</then>
+				</elseif>
+				<elseif>
 					<equals arg1="dxp72" arg2="${bundle.type}" />
 					<then>
 						<property name="current.bundle.name" value="${dxp72.name}" />
 						<property name="license.required" value="True"/>
+						<property name="tomcat917" value="yes" />
 					</then>
 				</elseif>
 				<elseif>
@@ -112,7 +126,7 @@
 
 	<macrodef name="set-database-properties">
 		<sequential>
-			<input message="Which Database do you want to reset?" validargs="db2,hypersonic,mysql,maria,postgres,oracle,sqlserver" addproperty="database.name" />
+			<input message="Which Database do you want to reset?" validargs="db2,hypersonic,mysql,maria,postgres,oracle,sqlserver,sybase" addproperty="database.name" />
 		</sequential>
 	</macrodef>
 
@@ -139,6 +153,12 @@
 					<equals arg1="${tomcat910}" arg2="yes" />
 					<then>
 						<property name="server.name" value="${server.foldername910}" />
+					</then>
+				</elseif>
+				<elseif>
+					<equals arg1="${tomcat917}" arg2="yes" />
+					<then>
+						<property name="server.name" value="${server.foldername917}" />
 					</then>
 				</elseif>
 				<else>

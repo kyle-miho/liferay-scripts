@@ -9,7 +9,7 @@ $/ = "";
 #####################################################################
 #MODIFY THESE
 #TEST PROPERTY LOCATION
-my $testProp ="/home/kyle/Liferay/public/master-portal/test.properties";
+my $testProp ="/home/kyle/Liferay/repos/master-portal/test.properties";
 #ACCEPTANCE NAME
 my $name = "kyle";
 #####################################################################

@@ -77,6 +77,12 @@
 						<_start-sqlserver containerName="@{containerName}" dockerPath="@{dockerPath}" />
 					</then>
 				</elseif>
+				<elseif>
+					<equals arg1="@{databaseName}" arg2="sybase" />
+					<then>
+						<_start-sybase containerName="@{containerName}" dockerPath="@{dockerPath}" />
+					</then>
+				</elseif>
 			</if>
 			
 		</sequential>
@@ -87,6 +93,7 @@
 		<attribute name="dockerPath" />
 
 		<sequential>
+			<echo>${envlist.location}</echo>
 			<exec executable="@{dockerPath}">
 				<arg value="run" />
 
@@ -102,9 +109,19 @@
 				<arg value="--restart=always" />
 				<arg value="--privileged=true" />
 
+				<arg value="--env-file" />
+				<arg value="${envlist.location}" />
+
 				<arg value="-d" />
 				<arg value="db2:11.1" />
 			</exec>
+
+			<echo>Waiting 300 seconds for db2 to initialize</echo>
+			<sleep seconds="300"/>
+
+			<exec executable="/bin/bash">
+				<arg value="docker/db2.sh" />
+			</exec> 
 		</sequential>
 	</macrodef>
 
@@ -202,6 +219,33 @@
 
 			<exec executable="/bin/bash">
 				<arg value="docker/sqlserver.sh" />
+			</exec> 		
+		</sequential>
+	</macrodef>
+
+	<macrodef name ="_start-sybase">
+		<attribute name="containerName" />
+		<attribute name="dockerPath" />
+		
+		<sequential>
+			<exec executable="@{dockerPath}">
+				<arg value="run" />
+
+				<arg value="-p" />
+				<arg value="5000:5000" />
+
+				<arg value="--name" />
+				<arg value="@{containerName}" />
+
+				<arg value="-d" />
+				<arg value="sybase:16.2" />
+			</exec>
+
+			<echo>Waiting 50 seconds for sybase to initialize</echo>
+			<sleep seconds="50"/>
+
+			<exec executable="/bin/bash">
+				<arg value="docker/sybase.sh" />
 			</exec> 		
 		</sequential>
 	</macrodef>
